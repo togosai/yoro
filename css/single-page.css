@@ -1,0 +1,750 @@
+/* ==========================================================================
+   東合祭 -溶炉- (TOGOSAI -YORO-)
+   Single-Page Tournament LP Stylesheet
+   Designed for high-impact aesthetics, period-limited deployment, and swift management
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. Design Tokens & Root Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette - Sarkaz Furnace Theme */
+  --color-bg-dark: #09070c;
+  --color-bg-card: rgba(22, 17, 28, 0.75);
+  --color-bg-card-hover: rgba(35, 27, 44, 0.85);
+  --color-bg-card-solid: #15101a;
+  
+  --color-amber-primary: #ff9d00;
+  --color-amber-glow: rgba(255, 157, 0, 0.35);
+  --color-gold-light: #ffe699;
+  --color-gold-main: #f5b041;
+  --color-crimson: #e74c3c;
+  --color-emerald: #2ecc71;
+  
+  --color-text-main: #f0ecf4;
+  --color-text-muted: #a097ac;
+  --color-text-dim: #6d6478;
+
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-amber: rgba(255, 157, 0, 0.25);
+  --border-gold-glow: rgba(245, 176, 65, 0.5);
+
+  --font-heading: 'Shippori Mincho', 'Noto Sans JP', serif;
+  --font-sans: 'Outfit', 'Line Seed Sans JP', 'Noto Sans JP', sans-serif;
+
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 25px rgba(255, 157, 0, 0.25);
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   02. Reset & Base Setup
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(120, 40, 20, 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 10% 40%, rgba(70, 20, 90, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 90% 70%, rgba(180, 80, 0, 0.15) 0%, transparent 50%),
+    var(--color-bg-dark);
+  background-attachment: fixed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   03. Layout Container & Utilities
+   -------------------------------------------------------------------------- */
+.sp-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sp-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.sp-section-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sp-section-title h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #ffffff 30%, var(--color-gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+.sp-section-title h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-amber-primary), transparent);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.sp-section-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-amber-primary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* Glassmorphism Card Component */
+.sp-card {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.sp-card:hover {
+  border-color: var(--border-amber);
+}
+
+/* --------------------------------------------------------------------------
+   04. Sticky Navigation Bar
+   -------------------------------------------------------------------------- */
+.sp-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(9, 7, 12, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 14px 0;
+  transition: all var(--transition-normal);
+}
+
+.sp-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sp-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.sp-nav-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.sp-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.sp-nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.sp-nav-link:hover {
+  color: var(--color-amber-primary);
+}
+
+.sp-nav-btn {
+  background: linear-gradient(135deg, #ff8c00, #ff5500);
+  color: #fff !important;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sp-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   05. Period Notice Status Banner (期間終了時・ステータス通知バー)
+   -------------------------------------------------------------------------- */
+.sp-status-bar {
+  background: linear-gradient(90deg, rgba(255, 157, 0, 0.15), rgba(255, 85, 0, 0.25), rgba(255, 157, 0, 0.15));
+  border-bottom: 1px solid var(--border-amber);
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 60px; /* Offset for fixed nav */
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sp-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 157, 0, 0.2);
+  color: var(--color-gold-light);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border-amber);
+}
+
+.sp-status-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-emerald);
+  animation: pulse-dot 1.8s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+/* --------------------------------------------------------------------------
+   06. Hero Section
+   -------------------------------------------------------------------------- */
+.sp-hero {
+  padding: 60px 0 80px;
+  text-align: center;
+  position: relative;
+}
+
+.sp-hero-eyecatch {
+  max-width: 960px;
+  margin: 0 auto 32px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--border-amber);
+  position: relative;
+}
+
+.sp-hero-eyecatch img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.8s ease;
+}
+
+.sp-hero-eyecatch:hover img {
+  transform: scale(1.02);
+}
+
+.sp-hero-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.sp-meta-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sp-meta-badge strong {
+  color: var(--color-amber-primary);
+}
+
+.sp-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.sp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: none;
+}
+
+.sp-btn-primary {
+  background: linear-gradient(135deg, #ff9d00 0%, #ff5500 100%);
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+}
+
+.sp-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 140, 0, 0.6);
+}
+
+.sp-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-main);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(10px);
+}
+
+.sp-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-text-muted);
+  transform: translateY(-3px);
+}
+
+/* --------------------------------------------------------------------------
+   07. About Section & Highlight Badges
+   -------------------------------------------------------------------------- */
+.sp-about-text {
+  font-size: 1.25rem;
+  text-align: center;
+  line-height: 1.9;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: var(--color-text-main);
+  font-weight: 500;
+}
+
+.sp-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.sp-highlight-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  padding: 28px;
+  border-radius: 14px;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.sp-highlight-card:hover {
+  background: rgba(255, 157, 0, 0.05);
+  border-color: var(--border-amber);
+  transform: translateY(-4px);
+}
+
+.sp-highlight-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.sp-highlight-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-gold-light);
+  margin-bottom: 8px;
+}
+
+.sp-highlight-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   08. Schedule Timeline Section
+   -------------------------------------------------------------------------- */
+.sp-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  position: relative;
+}
+
+.sp-timeline-item {
+  position: relative;
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 28px;
+  transition: all var(--transition-normal);
+}
+
+.sp-timeline-item.active {
+  border-color: var(--color-amber-primary);
+  box-shadow: 0 0 25px rgba(255, 157, 0, 0.2);
+  background: linear-gradient(145deg, rgba(35, 25, 45, 0.9), rgba(22, 17, 28, 0.8));
+}
+
+.sp-timeline-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.sp-timeline-item.active .sp-timeline-badge {
+  background: var(--color-amber-primary);
+  color: #000;
+}
+
+.sp-timeline-item.upcoming .sp-timeline-badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-muted);
+}
+
+.sp-timeline-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.sp-timeline-date {
+  font-size: 1.05rem;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   09. Entry Section & Requirements
+   -------------------------------------------------------------------------- */
+.sp-entry-box {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.sp-req-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sp-req-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.sp-req-list li {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sp-req-list li::before {
+  content: '✓';
+  color: var(--color-amber-primary);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.sp-entry-action {
+  text-align: center;
+}
+
+.sp-entry-note {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. Rules & Tournament Points (TP) Section
+   -------------------------------------------------------------------------- */
+.sp-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.sp-rule-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--color-amber-primary);
+  padding: 20px 24px;
+  border-radius: 8px 12px 12px 8px;
+}
+
+.sp-rule-item h4 {
+  font-size: 1.1rem;
+  color: var(--color-gold-light);
+  margin-bottom: 8px;
+}
+
+.sp-rule-item p {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* TP Table Styling */
+.sp-tp-accordion {
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(15, 12, 20, 0.8);
+}
+
+.sp-tp-header {
+  padding: 20px 28px;
+  background: rgba(255, 157, 0, 0.08);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sp-tp-header h3 {
+  font-size: 1.2rem;
+  color: var(--color-gold-light);
+}
+
+.sp-tp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sp-tp-table th, .sp-tp-table td {
+  padding: 14px 24px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+}
+
+.sp-tp-table th {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.sp-tp-table td.val-plus {
+  color: var(--color-emerald);
+  font-weight: 700;
+  text-align: right;
+}
+
+.sp-tp-table td.val-minus {
+  color: var(--color-crimson);
+  font-weight: 700;
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   11. Stream & Results Placeholder
+   -------------------------------------------------------------------------- */
+.sp-stream-card {
+  text-align: center;
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-light);
+  border-radius: 16px;
+}
+
+.sp-stream-card h3 {
+  font-size: 1.3rem;
+  color: var(--color-gold-light);
+  margin-bottom: 12px;
+}
+
+.sp-stream-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer & Period End Notice
+   -------------------------------------------------------------------------- */
+.sp-footer {
+  background: #050407;
+  border-top: 1px solid var(--border-light);
+  padding: 48px 0;
+  text-align: center;
+}
+
+.sp-footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.sp-social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-main);
+  transition: all var(--transition-fast);
+}
+
+.sp-social-btn:hover {
+  background: var(--color-amber-primary);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.sp-footer-disclaimer {
+  font-size: 0.82rem;
+  color: var(--color-text-dim);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Modal Window for PDF */
+.sp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.sp-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sp-modal-content {
+  width: 90%;
+  max-width: 1000px;
+  height: 85vh;
+  background: var(--color-bg-card-solid);
+  border: 1px solid var(--border-amber);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sp-modal-header {
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sp-modal-close {
+  background: none;
+  border: none;
+  color: var(--color-text-main);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.sp-modal-body {
+  flex: 1;
+}
+
+.sp-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   13. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .sp-nav-menu {
+    display: none; /* Mobile menu can be simplified */
+  }
+  
+  .sp-section {
+    padding: 50px 0;
+  }
+
+  .sp-section-title h2 {
+    font-size: 1.75rem;
+  }
+
+  .sp-hero-actions {
+    flex-direction: column;
+  }
+  
+  .sp-btn {
+    width: 100%;
+  }
+}

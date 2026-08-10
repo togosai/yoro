@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東合祭 -溶炉- | TOGOSAI -YORO- Official Website</title>
+  <meta name="description" content="統合戦略#5「サルカズの炉辺奇談」を舞台とした、3人1組対抗の非公式大会「東合祭 -溶炉- (TOGOSAI -YORO-)」公式Webサイト">
+  
+  <!-- CSS imports -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  
+  <!-- LINE Seed JP Font CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@line/seed-sans-jp@1.0.1/css/line-seed-jp.css">
+
+  <!-- Google Fonts: Noto Sans JP, Shippori Mincho, Cormorant Garamond, Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;700;800;900&family=Outfit:wght@400;500;600;700&family=Shippori+Mincho:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Floating Capsule Header (浮遊カプセル型独立ヘッダー) -->
+  <header class="site-header">
+    <div class="header-pill-container">
+      <nav class="site-nav">
+        <ul class="nav-image-list">
+          <li><a href="#about" class="nav-img-link"><img src="./assets/大会概要.png" alt="大会概要"></a></li>
+          <li><a href="#registration" class="nav-img-link"><img src="./assets/参加について.png" alt="参加について"></a></li>
+          <li><a href="#rules" class="nav-img-link"><img src="./assets/大会ルール.png" alt="大会ルール"></a></li>
+          <li><a href="#schedule" class="nav-img-link"><img src="./assets/スケジュール.png" alt="日程"></a></li>
+          <li><a href="#stream" class="nav-img-link"><img src="./assets/配信.png" alt="配信"></a></li>
+          <li><a href="#results" class="nav-img-link"><img src="./assets/結果.png" alt="結果"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- 01. Hero Section (アイキャッチ画像 画面端貼り付き表示) -->
+    <section id="hero" class="hero-section">
+      <div class="hero-eyecatch-wrapper">
+        <img src="./assets/アイキャッチ画像.png" alt="東合祭 -溶炉- 参加者募集開始 サルカズの炉辺奇談 3人チーム戦" class="hero-eyecatch-img">
+      </div>
+    </section>
+
+    <!-- 02. About Section (「東合祭-溶炉-とは.png」画像見出し) -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-main-card section-about-card">
+          <div class="section-header">
+            <div class="section-title-img-wrapper">
+              <img src="./assets/東合祭-溶炉-とは.png" alt="東合祭 -溶炉-とは" class="section-title-img section-title-img-about">
+            </div>
+          </div>
+          <p id="about-desc" class="about-desc-center">アークナイツ 統合戦略#5「サルカズの炉辺奇談」を舞台とした、<br>3人1組チーム対抗の非公式大会。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. Registration Section (参加条件改修・応募フォームURL差し替え) -->
+    <section id="registration" class="section">
+      <div class="container">
+        <div class="section-main-card">
+          <div class="section-header">
+            <div class="section-title-img-wrapper">
+              <img src="./assets/参加について.png" alt="参加について" class="section-title-img">
+            </div>
+          </div>
+          
+          <!-- 参加条件 (全幅カード構造) -->
+          <div class="info-card" style="margin-bottom: 32px;">
+            <h3>参加条件</h3>
+            <p style="font-size: 1.15rem; margin-bottom: 16px; font-weight: 700;">
+              大会へ参加するチームは、チームメンバー3名のクリアリザルトを提出してください。<br>
+              提出するクリアリザルトは、以下のすべての条件を確認できる必要があります。
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 2;">
+              <li>魂に直面18でクリアしていること</li>
+              <li>「バベルの誓い」「アナサのカルマ」を所持していること</li>
+              <li>エンディング「素晴らしき日」に到達していること</li>
+              <li>大会へ参加する本人がプレイ・達成したリザルトであること</li>
+              <li>募集期間中に撮影されたものであること</li>
+            </ul>
+          </div>
+
+          <!-- 応募ボタン (最新 Google Form URL) -->
+          <div style="text-align: center; margin-top: 36px;">
+            <a id="reg-form-btn" href="https://forms.gle/6nNYgSwiK1m1oQ9F8" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">応募はこちら</a>
+            <p style="margin-top: 12px; font-size: 1rem; color: var(--text-muted);">※ 外部の Google Forms へ移動します</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. Rules Section (左1/5黄色・右4/5白色 新レイアウト) -->
+    <section id="rules" class="section">
+      <div class="container">
+        <div class="section-main-card">
+          <!-- 大会ルール 見出し -->
+          <div class="section-header">
+            <div class="section-title-img-wrapper">
+              <img src="./assets/大会ルール.png" alt="大会ルール" class="section-title-img">
+            </div>
+          </div>
+
+          <!-- 新レイアウト: 左1/5(明るい黄色角丸) ＋ 右4/5(白色角丸) 構造 -->
+          <div class="rules-layout-container" style="margin-bottom: 44px;">
+            
+            <!-- 1. 基本ルール -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>基本ルール</h4>
+              </div>
+              <div class="rules-right-card">
+                <p>本大会は3人１組によるチーム戦で実施され、大会ポイント（TP）の合計点で順位を決定します。<br>チーム内で使用する分隊及び★6オペレーターを重複して使用することはできず、合計引き出し額は200までとなります。</p>
+              </div>
+            </div>
+
+            <!-- 2. 大会ポイント -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>大会ポイント</h4>
+              </div>
+              <div class="rules-right-card">
+                <p>各ステージのクリア状況、ボス撃破数、各種課題の達成に応じて独自の大会ポイント（TP）が加算されます。<br><span class="notice-pill-gray">※ TPの一覧は下記記載。</span></p>
+              </div>
+            </div>
+
+            <!-- 3. 制限時間 -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>制限時間</h4>
+              </div>
+              <div class="rules-right-card">
+                <p>制限時間は3時間です。制限時間内に戦闘を開始している場合、その戦闘終了までプレイを継続できます。</p>
+              </div>
+            </div>
+
+            <!-- 4. 再走・リセマラ -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>再走・リセマラ</h4>
+              </div>
+              <div class="rules-right-card">
+                <p>各走者は1回まで再走できます。再走中は条件を満たすまで探索をやり直すことができますが、リセマラ中も制限時間は継続して計測されます。<br><span class="notice-pill-gray">※ 詳細条件についてはルールブックを確認ください。</span></p>
+              </div>
+            </div>
+
+            <!-- 5. 相談 -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>相談</h4>
+              </div>
+              <div class="rules-right-card">
+                <p>チームメンバー同士の相談は大会中いつでも自由に行うことができます。</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 相談の下: 大会ポイント (TP) タイトル画像 ＆ Webデータ表エリア -->
+          <div style="margin-top: 52px; margin-bottom: 24px; text-align: center;">
+            <div class="section-title-img-wrapper">
+              <img src="./assets/大会ポイント.png" alt="大会ポイント (TP)" class="section-title-img">
+            </div>
+          </div>
+
+          <!-- 大会ポイント (TP) 4つのカテゴリー別「左(青色#006FA2)＋右(白色)角丸四角カード」構造 -->
+          <div class="rules-layout-container" style="margin-bottom: 48px;">
+            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; color: #1c1209;">以下に指定されたステージおよび達成条件に応じてTPが加点・減点されます。</p>
+
+            <!-- 1. 緊急作戦 -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>緊急作戦</h4>
+              </div>
+              <div class="rules-right-card" style="padding: 12px 20px;">
+                <table class="tp-sub-table" style="width: 100%; border-collapse: collapse;">
+                  <tbody>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">混沌（クリア）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+30</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">神出鬼没（クリア / 抜けなし）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+50 / +20</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">論争頻発（クリア / 抜けなし）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+50 / +20</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">サルカズの軍隊（クリア / 抜けなし）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+50 / +20</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">ライン生命の警備体制（クリア / 抜けなし）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+40 / +20</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">合意を求めて（クリア / 5層出現時）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+10 / +30</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">聖なる渇望（クリア / 5層出現時）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+10 / +30</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">「外道」（クリア / 5層出現時）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+20 / +40</td></tr>
+                    <tr><td style="padding: 8px 0; font-weight: 600;">洞天福地（クリア / 5層出現時）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+40 / +60</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 2. 3層強化ボス -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>3層強化ボス</h4>
+              </div>
+              <div class="rules-right-card" style="padding: 12px 20px;">
+                <table class="tp-sub-table" style="width: 100%; border-collapse: collapse;">
+                  <tbody>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">別れの歌の庭（クリア）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+40</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">敵に立ち向かう者（クリア）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+40</td></tr>
+                    <tr><td style="padding: 8px 0; font-weight: 600;">王冠のもとに（クリア）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+40</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 3. エンディング -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>エンディング</h4>
+              </div>
+              <div class="rules-right-card" style="padding: 12px 20px;">
+                <table class="tp-sub-table" style="width: 100%; border-collapse: collapse;">
+                  <tbody>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">緊急授業（クリア / 混乱）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+40 / +10</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">思考矯正（クリア / 混乱）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+200 / +10</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">謁見（クリア / 混乱）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+100 / +10</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">魂の謁見（クリア / 混乱）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+200 / +10</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">聖都（通過）</td><td style="padding: 8px 0; text-align: right; font-weight: 900; color: #c62828;">最終TP 0点</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">説法（クリア / クイロン撃破 / 混乱）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+50 / +100 / +120</td></tr>
+                    <tr><td style="padding: 8px 0; font-weight: 600;">拒絶は許さぬ（クリア / 混乱 / 終結の実相 / 抜けなし / 実相+抜けなし）</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #00843d;">+200 / +100 / +100 / +80 / +40</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 4. スコア補正 -->
+            <div class="rules-row-group">
+              <div class="rules-left-card">
+                <h4>スコア補正</h4>
+              </div>
+              <div class="rules-right-card" style="padding: 12px 20px;">
+                <table class="tp-sub-table" style="width: 100%; border-collapse: collapse;">
+                  <tbody>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">破棘成金分隊を使用</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #d32f2f;">-40</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;"><td style="padding: 8px 0; font-weight: 600;">位置測定分隊を使用</td><td style="padding: 8px 0; text-align: right; font-weight: 800; color: #d32f2f;">-40</td></tr>
+                    <tr><td style="padding: 8px 0; font-weight: 600;">主なき回想/ロドスの門を取得</td><td style="padding: 8px 0; text-align: right; font-weight: 900; color: #c62828;">最終TP0点</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- PDF表示ボタンエリア -->
+          <div class="section-header" style="margin-bottom: 20px;">
+            <h3 class="section-title" style="font-size: 1.6rem;">詳細ルールPDF</h3>
+          </div>
+
+          <div class="pdf-control-group">
+            <button type="button" id="btn-open-pdf-modal" class="btn btn-secondary">
+              📄 詳細ルールPDFを表示
+            </button>
+            <a id="rules-pdf-download-btn" href="./assets/rulebook_ja_1.2.pdf" class="btn btn-primary" download>
+              ⬇ ルールPDFをダウンロード
+            </a>
+          </div>
+
+          <!-- 動画セクション -->
+          <div class="section-header" style="margin-top: 48px; margin-bottom: 20px;">
+            <h3 class="section-title" style="font-size: 1.6rem;">ルール説明動画</h3>
+          </div>
+          <div id="rules-video-container" class="placeholder-box">
+            <p style="font-size: 1.25rem;">ルール動画は準備中です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. Schedule Section (「スケジュール.png」) -->
+    <section id="schedule" class="section">
+      <div class="container">
+        <div class="section-main-card">
+          <div class="section-header">
+            <div class="section-title-img-wrapper">
+              <img src="./assets/スケジュール.png" alt="日程 (スケジュール)" class="section-title-img">
+            </div>
+          </div>
+          <div id="schedule-container">
+            <!-- JSで描画 -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06. Stream Section (「配信.png」) -->
+    <section id="stream" class="section">
+      <div class="container">
+        <div class="section-main-card">
+          <div class="section-header">
+            <div class="section-title-img-wrapper">
+              <img src="./assets/配信.png" alt="配信" class="section-title-img section-title-img-compact">
+            </div>
+          </div>
+          <div id="stream-container">
+            <div class="placeholder-box" style="text-align: center; padding: 36px 20px;">
+              <p style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin: 0;">更新次第開放予定</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. Results Section (「結果.png」) -->
+    <section id="results" class="section">
+      <div class="container">
+        <div class="section-main-card">
+          <div class="section-header">
+            <div class="section-title-img-wrapper">
+              <img src="./assets/結果.png" alt="結果" class="section-title-img section-title-img-compact">
+            </div>
+          </div>
+          <div id="results-container">
+            <div class="placeholder-box" style="text-align: center; padding: 36px 20px;">
+              <p style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin: 0;">更新次第開放予定</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PDF モーダルウィンドウ (画面中央ポップアップ) -->
+  <div id="pdf-modal-overlay" class="pdf-modal-overlay">
+    <div class="pdf-modal-window">
+      <div class="pdf-modal-header">
+        <span id="pdf-modal-title" class="pdf-modal-title">📄 詳細ルールPDFプレビュー</span>
+        <button type="button" id="btn-close-pdf-modal" class="pdf-modal-close-btn">❌ 閉じる</button>
+      </div>
+      <div class="pdf-modal-body">
+        <iframe id="pdf-modal-iframe" src="" title="Rules PDF Viewer"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <span class="footer-link-label">LINK</span>
+        
+        <a id="footer-link-x" href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (Twitter)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+
+        <a id="footer-link-youtube" href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
+          <svg width="26" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+      </div>
+
+      <p style="margin-top: 14px; font-size: 0.85rem;">本大会は非公式のコミュニティイベントであり、ゲーム公式・権利元とは直接の関係はありません。</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Module -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

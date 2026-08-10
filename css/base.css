@@ -1,0 +1,96 @@
+/* ==========================================
+   東合祭 -溶炉- (TOGOSAI -YORO-)
+   リセット & ベーススタイル (base.css)
+   ・元の「背景.png」大判スクロール配置
+   ========================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px; /* 全体のフォントサイズ */
+  scroll-behavior: smooth;
+  scroll-padding-top: 0px;
+  background-color: #d89e1b;
+  color: var(--text-primary);
+  font-family: var(--font-family-base);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  
+  /* 「背景タイル.png」小判パターン繰り返し配置 (2/3サイズ: 40px) */
+  background-image: url("../assets/背景タイル.png");
+  background-size: 40px 40px;
+  background-repeat: repeat;
+  background-position: top left;
+  background-attachment: scroll;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary); /* 深濃茶色 */
+}
+
+a {
+  color: var(--accent-amber);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-gold-hover);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+img, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-paper-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-amber);
+  border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 85px 0;
+  position: relative;
+  scroll-margin-top: 130px;
+}

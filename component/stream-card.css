@@ -1,0 +1,62 @@
+/* ==========================================
+   配信準備中カード コンポーネントスタイル (stream-card.css)
+   ========================================== */
+
+/* 配信カード全体を配信準備中としてロックするスタイル */
+div#stream-card.ht-card.is-preparing {
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: #ffffff !important;
+  border: 3px solid #963200 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 24px rgba(150, 50, 0, 0.12) !important;
+  pointer-events: auto !important;
+}
+
+/* 配信準備中カード内のタブクリックを無効化 */
+div#stream-card.ht-card.is-preparing .ht-tab-nav {
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* ダークグレー半透明オーバーレイ幕 */
+div#stream-card.ht-card.is-preparing::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(22, 14, 10, 0.65) !important;
+  z-index: 100 !important;
+  pointer-events: all !important;
+  cursor: not-allowed !important;
+  display: block !important;
+  backdrop-filter: blur(1px) !important;
+}
+
+/* 「配信準備中」白太文字 (シャドウなし・極太中央配置) */
+div#stream-card.ht-card.is-preparing::before {
+  content: '配信準備中' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #ffffff !important;
+  font-size: clamp(2.0rem, 3.5vw, 2.8rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.14em !important;
+  margin-right: -0.14em !important;
+  z-index: 101 !important;
+  pointer-events: none !important;
+  white-space: nowrap !important;
+  text-shadow: none !important;
+}
+
+.stream-placeholder-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 380px;
+  background-color: #2b2b2b;
+  border-radius: 12px;
+}

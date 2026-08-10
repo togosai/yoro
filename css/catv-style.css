@@ -1,0 +1,231 @@
+/* ==========================================================================
+   東合祭 -溶炉- (TOGOSAI -YORO-)
+   CATV Challenge Cup Inspired Modern Design Extension
+   - Ribbon Section Headers
+   - Double-Frame Card Containers
+   - Top Summary Hero Card
+   - 3D Action Buttons & Geometric Ambient Background
+   ========================================================================== */
+
+:root {
+  --catv-primary-orange: #ff7700;
+  --catv-secondary-gold: #ffbe00;
+  --catv-dark-purple: #120d18;
+  --catv-card-outer: linear-gradient(145deg, #2a1f38, #181124);
+  --catv-card-inner: #191222;
+  --catv-border-amber: rgba(255, 150, 0, 0.4);
+  --catv-shadow-3d: 0 10px 0 #b34a00, 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* 01. Dynamic Geometric Background Ambient */
+body.catv-theme {
+  background-color: #0b0810;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 119, 0, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 100% 50%, rgba(138, 43, 226, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 0% 80%, rgba(255, 70, 0, 0.12) 0%, transparent 40%);
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Floating Geometric Diamonds Accent (左右の幾何学装飾) */
+body.catv-theme::before, body.catv-theme::after {
+  content: '';
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, rgba(255, 119, 0, 0.05), rgba(255, 190, 0, 0.02));
+  border: 1px solid rgba(255, 150, 0, 0.15);
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.catv-theme::before {
+  top: 15%;
+  left: -150px;
+}
+
+body.catv-theme::after {
+  top: 65%;
+  right: -150px;
+}
+
+/* 02. CATV-Style Ribbon Section Header */
+.catv-ribbon-header {
+  position: relative;
+  text-align: center;
+  margin: 0 auto 36px;
+  max-width: 600px;
+}
+
+.catv-ribbon-title {
+  display: inline-block;
+  position: relative;
+  padding: 12px 48px;
+  background: linear-gradient(135deg, #d35400 0%, #e67e22 50%, #f39c12 100%);
+  color: #ffffff;
+  font-family: var(--font-heading, 'Shippori Mincho', serif);
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(211, 84, 0, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ribbon tails effect (両端の折り返し演出) */
+.catv-ribbon-title::before, .catv-ribbon-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.catv-ribbon-badge-icon {
+  position: absolute;
+  top: -16px;
+  right: -12px;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #ffbe00, #ff7700);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 03. CATV-Style Double Frame Container */
+.catv-double-frame {
+  background: var(--catv-card-outer);
+  border: 2px solid var(--catv-border-amber);
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.catv-inner-card {
+  background: var(--catv-card-inner);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 36px 32px;
+  position: relative;
+}
+
+/* 04. Top Hero Summary Card (ヒーローサマリーカード) */
+.catv-hero-summary-card {
+  background: linear-gradient(135deg, rgba(230, 126, 34, 0.15), rgba(18, 13, 24, 0.95));
+  border: 2px solid var(--catv-secondary-gold);
+  border-radius: 20px;
+  padding: 24px 32px;
+  margin: -20px auto 40px;
+  max-width: 900px;
+  box-shadow: 0 12px 30px rgba(255, 119, 0, 0.25);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.catv-hero-info-item {
+  border-right: 1px dashed rgba(255, 255, 255, 0.15);
+  padding: 0 12px;
+}
+
+.catv-hero-info-item:last-child {
+  border-right: none;
+}
+
+.catv-hero-label {
+  font-size: 0.85rem;
+  color: #ffbe00;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.catv-hero-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.catv-hero-val.highlight {
+  font-size: 1.3rem;
+  color: #ff5500;
+  text-shadow: 0 0 10px rgba(255, 85, 0, 0.5);
+}
+
+/* 05. 3D Glowing CTA Button (CATV風の強力な立体ボタン) */
+.catv-btn-3d {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 48px;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #ff9900 0%, #ff5500 60%, #cc3300 100%);
+  border-radius: 50px;
+  border: 2px solid #ffcc00;
+  box-shadow: var(--catv-shadow-3d);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.catv-btn-3d:hover {
+  transform: translateY(3px);
+  box-shadow: 0 7px 0 #b34a00, 0 10px 20px rgba(255, 85, 0, 0.6);
+  background: linear-gradient(180deg, #ffaa11 0%, #ff6611 60%, #dd4400 100%);
+}
+
+.catv-btn-3d:active {
+  transform: translateY(8px);
+  box-shadow: 0 2px 0 #b34a00, 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 06. Table Header Badges */
+.catv-table-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff7700, #ffbe00);
+  color: #000;
+  font-weight: 800;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .catv-hero-info-item {
+    border-right: none;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    padding-bottom: 12px;
+  }
+  .catv-ribbon-title {
+    font-size: 1.4rem;
+    padding: 10px 28px;
+  }
+  .catv-btn-3d {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 16px 24px;
+  }
+}

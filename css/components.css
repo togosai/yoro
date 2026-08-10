@@ -1,0 +1,1891 @@
+/* ==========================================
+   東合祭 -溶炉- (TOGOSAI -YORO-)
+   UIコンポーネントスタイル (components.css)
+   ========================================== */
+
+/* ------------------------------------------
+   0. Header (画面上部に浮遊する独立した半円カプセル型ピル外枠ヘッダー)
+   ------------------------------------------ */
+.site-header {
+  display: none !important; /* ヘッダー非表示化 */
+  position: fixed;
+  top: 16px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* デスクトップ大画面以外 (width <= 1050px) ではヘッダー外枠を丸ごと完全非表示 */
+@media (max-width: 1050px) {
+  .site-header {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+}
+
+/* 横が完全な半円となっている角丸長方形の外枠 (.header-pill-container) */
+.header-pill-container {
+  position: relative;
+  pointer-events: auto;
+  margin: 0 auto;
+  /* ウィンドウ横幅が長くなった際、ヘッダー自体も少し長く伸びやかにスケーリング */
+  width: clamp(720px, 72vw, 960px);
+  max-width: 960px;
+  /* ヘッダーの背景: 全体背景と同じ「背景タイル.png」に統一 (40px) */
+  background-image: url("../assets/背景タイル.png");
+  background-size: 40px 40px;
+  background-position: center;
+  background-repeat: repeat;
+  /* ヘッダー外枠: 本文中の青い箱と同じ色(#006FA2) ＋ すっきりとした適切な太さ(5px) */
+  border: 5px solid #006FA2;
+  border-radius: 9999px; /* 完全な半円角丸ピル形状 */
+  /* ★ 左下方向のきっぱりとしたソリッド影 (より透明感を高めた rgba 0.25) ★ */
+  box-shadow: -5px 7px 0px rgba(28, 18, 9, 0.25);
+  backdrop-filter: blur(14px);
+  
+  /* 画像群の左右にゆったりとした広めの余白を確保 */
+  padding: clamp(8px, 1.0vw, 16px) clamp(24px, 3.2vw, 56px);
+
+  /* ★ 横幅・パディング変化時の滑らかなイージングアニメーション ★ */
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+  will-change: width, padding;
+}
+
+.site-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 6つのタイトル画像リスト (画面幅変異: 表示なし → 1段 → 2段 の単調増加変異) */
+.nav-image-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: clamp(4px, 1.0vw, 14px) clamp(8px, 1.5vw, 24px);
+  transition: gap 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-img-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 5px;
+  border-radius: 9999px;
+  transition: transform 0.25s ease;
+}
+
+/* ヘッダータイトル画像の拡大・浮き上がり演出は全廃 */
+.nav-img-link:hover,
+.nav-img-link.active {
+  transform: none !important;
+  filter: none !important;
+}
+
+/* タイトル画像の大きさ変異率 (小さい時はさらに小さく 10px〜) */
+.nav-img-link img {
+  height: clamp(10px, 2.8vw, 52px) !important;
+  width: auto;
+  object-fit: contain;
+  margin: 0 !important;
+  filter: none !important;
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------
+   1. Section Header & Image Titles (本文タイトル縦幅厳格均一化)
+   ------------------------------------------ */
+.section-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-num,
+.section-subtitle {
+  display: none !important;
+}
+
+.section-title-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* ★ 全見出しの「文字縦幅 (高さ)」を 95px に厳格に均一統一 ★ */
+.section-title-img {
+  height: 95px !important;
+  width: auto !important;
+  max-width: 90% !important;
+  object-fit: contain !important;
+  display: block;
+  margin: 0 auto;
+  filter: none !important; /* 影なし */
+}
+
+/* ★「東合祭-溶炉-とは」超大判タイトル画像 (さらに一回り拡大: 155px) ★ */
+.section-title-img-about {
+  height: 155px !important;
+  width: auto !important;
+  max-width: 98% !important;
+  object-fit: contain !important;
+  filter: none !important;
+}
+
+/* 2文字・多文字・大会ポイントも含め全見出しは上記 height: 95px で一律整列 */
+.section-title-img-compact {
+  height: 95px !important;
+  width: auto !important;
+}
+
+/* ------------------------------------------
+   01. Hero Section (選択肢B: 縦幅拡大・左右トリミング)
+   ------------------------------------------ */
+.hero-section {
+  position: relative;
+  width: 100%;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  overflow: hidden;
+  border-bottom: 4px solid #006FA2;
+  box-shadow: 0 3px 10px rgba(0, 111, 162, 0.25);
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: clamp(700px, 78vh, 860px); /* 現在のさらに1.2倍の高さ (約790px) */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  min-width: 100%;
+  max-width: none !important;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 32px;
+  gap: clamp(20px, 3.8vh, 44px);
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.hero-title-img,
+.hero-recruiting-img {
+  width: clamp(340px, 58vw, 840px) !important; /* タイトル画像をひとまわり大きく迫力あるサイズに設定 */
+  height: auto !important;
+  max-width: 95% !important;
+  object-fit: contain;
+  filter: none !important;
+  display: block;
+  margin: 0 auto;
+  will-change: transform, opacity;
+}
+
+/* ブラウザロード時アニメーション */
+.hero-title-img {
+  animation: titleFadeZoomIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-recruiting-img {
+  opacity: 1;
+  animation: none;
+}
+
+@keyframes titleFadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.32);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-bg-img {
+    object-position: center top;
+  }
+}
+
+/* テキストタイトル（白縁取り一切なしのフラット濃茶色） */
+.section-title {
+  display: inline-block;
+  font-family: var(--font-family-base);
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--title-color-dark);
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-shadow: none !important; /* 縁取り解除 */
+  -webkit-text-stroke: 0 !important;
+}
+
+/* 白ベースの薄い半透明メインカード */
+.section-main-card {
+  background-color: var(--card-bg-translucent);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 44px;
+  backdrop-filter: blur(10px);
+}
+
+/* ------------------------------------------
+   2. Special Customization for "ABOUT" Section
+   ------------------------------------------ */
+.section-about-card {
+  background: transparent !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  padding: 20px 0 !important;
+}
+
+/* 大会についての本文: 画面中央配置・白色文字 (フォント拡大) */
+.about-desc-center {
+  margin-top: -65px;
+  text-align: center;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 1.45rem; /* 本文文字サイズ大判化 (約26px) */
+  line-height: 1.85;
+  max-width: 920px;
+  margin: 0 auto;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+
+
+/* ------------------------------------------
+   4. Buttons (文字サイズ拡大)
+   ------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  font-family: var(--font-family-base);
+  font-size: 1.2rem; /* ボタン文字拡大 */
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: var(--accent-gold);
+  color: #ffffff;
+  border: 1px solid var(--accent-gold);
+}
+.btn-primary:hover {
+  background-color: var(--accent-gold-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--text-primary);
+  border: 2px solid var(--card-border-gold);
+  font-weight: 800;
+}
+.btn-secondary:hover {
+  background-color: #ffffff;
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+.btn-large {
+  padding: 20px 52px;
+  font-size: 1.3rem;
+}
+
+/* ------------------------------------------
+   5. Inner Cards & Grid (フォント全拡大)
+   ------------------------------------------ */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.info-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 2px solid var(--card-border-gold);
+  border-radius: var(--radius-sm);
+  padding: 30px;
+  color: var(--text-primary);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.info-card:hover {
+  border-color: var(--accent-gold-hover);
+}
+
+.info-card h3 {
+  font-size: 1.45rem; /* 見出し拡大 */
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  background-color: rgba(199, 143, 20, 0.18);
+  padding: 10px 16px;
+  border-left: 5px solid var(--accent-gold);
+  border-radius: 4px;
+}
+
+.info-card h3::before {
+  content: "◆";
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+}
+
+.info-card p {
+  font-size: 1.25rem; /* 本文拡大 22.5px */
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.info-card ul {
+  list-style: none;
+}
+
+.info-card li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 1.25rem; /* リスト拡大 22.5px */
+}
+
+.info-card li::before {
+  content: "─";
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* ------------------------------------------
+   6. PDF Modal Window (ポップアップウィンドウ表示)
+   ------------------------------------------ */
+.pdf-control-group {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* ポップアップ暗幕オーバーレイ */
+.pdf-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.pdf-modal-overlay.is-active {
+  display: flex;
+}
+
+/* 画面中央に浮き上がるポップアップウィンドウ */
+.pdf-modal-window {
+  width: 90%;
+  max-width: 1000px;
+  height: 85vh;
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 3px solid var(--card-border-gold);
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.pdf-modal-header {
+  height: 52px;
+  background-color: #1a1612;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.pdf-modal-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.pdf-modal-close-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background var(--transition-fast);
+}
+.pdf-modal-close-btn:hover {
+  background: var(--accent-amber);
+}
+
+.pdf-modal-body {
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 52px);
+}
+
+.pdf-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ------------------------------------------
+   7. Timeline (Schedule)
+   ------------------------------------------ */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px 1fr 130px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 24px 30px;
+}
+
+.timeline-item.active {
+  border-color: var(--card-border-gold);
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.timeline-title {
+  font-weight: 800;
+  font-size: 1.3rem; /* 拡大 */
+  color: var(--text-primary);
+}
+
+.timeline-period {
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 1.2rem; /* 拡大 */
+}
+
+.status-badge {
+  display: inline-block;
+  text-align: center;
+  padding: 6px 18px;
+  font-size: 0.95rem;
+  font-family: var(--font-family-base);
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-muted);
+}
+
+.status-badge.active {
+  background-color: var(--accent-gold);
+  color: #ffffff;
+}
+
+/* ------------------------------------------
+   8. Data Tables (TP & Results)
+   ------------------------------------------ */
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius-sm);
+}
+
+.data-table th,
+.data-table td {
+  padding: 20px 26px;
+  text-align: left;
+  border-bottom: 1px solid var(--card-border);
+  color: var(--text-primary);
+  font-size: 1.2rem; /* テーブル文字拡大 */
+}
+
+.data-table th {
+  background-color: rgba(217, 158, 24, 0.22);
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------
+   5. Rules Section New Layout (明るい黄色・右4/5白色 弱角丸8pxカード)
+   ------------------------------------------ */
+.rules-layout-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rules-row-group {
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
+}
+
+/* 左1/5: 青色 (#006FA2 フラット単色) 弱角丸8pxカード */
+.rules-left-card {
+  flex: 0 0 22%;
+  min-width: 150px;
+  background: #006FA2 !important; /* ユーザー指定カラーコード (#006FA2) */
+  color: #ffffff !important;
+  border-radius: 8px; /* 角丸8px */
+  padding: 16px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.rules-left-card h4 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-align: center;
+  color: #ffffff !important;
+  letter-spacing: 0.04em;
+}
+
+/* 右4/5: 白色 弱角丸8pxカード */
+.rules-right-card {
+  flex: 1;
+  background-color: #ffffff;
+  color: #1c1209;
+  border-radius: 8px; /* 角丸8px */
+  padding: 18px 24px;
+  border: none !important; /* 枠線完全消去 */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.rules-right-card p {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  font-weight: 600;
+  color: #1c1209;
+  margin: 0;
+  width: 100%;
+}
+
+/* ------------------------------------------
+   6. TP Custom Table (添付画像完全再現レスポンシブWebデータ表)
+   ------------------------------------------ */
+.tp-table-section {
+  width: 100%;
+}
+
+.tp-table-intro {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #1c1209;
+}
+
+.tp-table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid #cfd8dc;
+  background-color: #ffffff;
+}
+
+.tp-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family-base);
+  background-color: #ffffff;
+  min-width: 620px; /* スマホで横スクロール保護 */
+}
+
+.tp-custom-table th {
+  background-color: #0b1a2d; /* ダークネイビーヘッダー */
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 12px 16px;
+  text-align: left;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tp-custom-table th.th-tp {
+  background-color: #ea5404 !important; /* オレンジTPヘッダー */
+  text-align: center;
+  border-right: none;
+}
+
+.tp-custom-table td {
+  border: 1px solid #e2e8f0;
+  padding: 11px 16px;
+  font-size: 1.05rem;
+  color: #1c1209;
+}
+
+/* 左端カテゴリー列 */
+.td-category {
+  font-weight: 900;
+  font-size: 1.15rem;
+  background-color: #ffffff;
+  text-align: center !important;
+  vertical-align: middle !important;
+  border-right: 2px solid #cbd5e1 !important;
+  color: #0b1a2d;
+}
+
+/* スコア表示列 */
+.td-score {
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-align: center !alignment;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* 加点 (グリーン) */
+.score-plus {
+  color: #00843d !important;
+}
+
+/* 減点 (レッド) */
+.score-minus {
+  color: #d32f2f !important;
+}
+
+/* 特殊 (最終TP 0点) */
+.score-zero {
+  color: #c62828 !important;
+  font-weight: 900 !important;
+}
+
+/* 注記用 灰色 #F1F1F1 丸角四角 (白四角の横幅に合わせた全幅ブロック & 枠線全廃) */
+.notice-pill-gray {
+  display: block !important;
+  width: 100% !important;
+  background-color: #F1F1F1 !important;
+  color: #2b231a !important;
+  padding: 10px 18px;
+  border-radius: 6px; /* 丸角四角 */
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 14px;
+  border: none !important; /* 枠線完全消去 */
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .rules-row-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .rules-left-card {
+    flex: none;
+    width: 100%;
+    padding: 10px 16px;
+  }
+}
+
+/* ------------------------------------------
+   9. Footer (深濃茶背景)
+   ------------------------------------------ */
+.site-footer {
+  padding: 40px 0 30px;
+  background-color: var(--footer-bg-dark);
+  border-top: 1px solid var(--card-border);
+  margin-top: 60px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.footer-link-label {
+  font-family: var(--font-family-base);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  margin-right: 6px;
+}
+
+.footer-social-icon {
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  padding: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-social-icon:hover {
+  color: var(--accent-gold-hover);
+  background-color: rgba(217, 158, 24, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------
+   10. Custom Frame Section Layout (完全開放ゆとりマージンシステム)
+   ------------------------------------------ */
+section.frame-section {
+  position: relative !important;
+  width: 100% !important;
+  padding: 0 20px !important;
+  margin: 0 0 130px 0 !important; /* セクション間の標準マージンをゆったり広めの130pxに拡大統一 */
+  box-sizing: border-box !important;
+}
+
+/* ヒーローセクション直後の大会概要 (#overview) のみ、他の倍以上の 300px 大幅マージン */
+section#overview.frame-section {
+  margin-top: 300px !important;
+}
+
+/* 枠コンテナ: 横幅960px・見出し用上部マージン60pxに統一 */
+.frame-container {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 60px auto 0 auto !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* 見出しタイトル: 横幅を全セクションで完全統一 ＆ 上半分が枠から飛び出る配置 ＆ 影なし */
+.frame-title-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(280px, 56%, 560px) !important;
+  height: auto;
+  z-index: 10;
+  display: block;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* 背景枠画像: 元のアスペクト比を維持して表示 ＆ 影なし */
+.frame-bg-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* 枠内オーバーレイコンテンツエリア: 枠画像に完全追従する絶対配置レイアウト */
+.frame-overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.frame-overlay-content * {
+  pointer-events: auto;
+}
+
+/* 01. 大会概要 オーバーレイ */
+#overview .frame-container {
+  height: auto;
+}
+
+#overview .frame-overlay-content {
+  position: absolute;
+  top: 42%;
+  left: 15%;
+  right: 15%;
+  width: 70%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.overview-text {
+  font-size: clamp(0.68rem, 1.15vw, 0.95rem);
+  font-weight: 700;
+  line-height: 1.7;
+  color: #1c1209;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 02. 参加方法 オーバーレイ */
+#entry .frame-container {
+  height: auto;
+}
+
+.entry-direct-box {
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  right: 15%;
+  width: 70%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.entry-subtext {
+  font-size: clamp(0.68rem, 1.15vw, 0.95rem);
+  font-weight: 700;
+  line-height: 1.65;
+  color: #1c1209;
+  margin-bottom: 10px;
+  text-align: left;
+  width: 100%;
+  padding: 0;
+}
+
+.entry-condition-list {
+  font-size: clamp(0.65rem, 1.10vw, 0.90rem);
+  font-weight: 600;
+  line-height: 1.75;
+  color: #1c1209;
+  padding-left: 20px;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#entry .frame-btn-wrapper {
+  position: absolute;
+  top: 84.4%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+/* 03. ルール セクション (1924 x 6558 の画像測定座標に100%完全同期) */
+#rules .frame-container {
+  aspect-ratio: 1924 / 6558;
+}
+
+/* 全ルールの本文の開始座標を left: 15% に100%完全に一致させる */
+.rule-text {
+  font-size: clamp(0.70rem, 1.0vw, 0.82rem);
+  font-weight: 600;
+  color: #4a5568;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  display: block;
+  width: 100%;
+  margin: 4px 0 0 0;
+  text-align: left;
+}
+
+/* 1. 基本ルール (白領域: Y=287~619px) */
+.block-basic {
+  position: absolute;
+  top: 4.5%;
+  bottom: 90.7%;
+  left: 8.5%;
+  right: 8.5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 0;
+}
+
+/* 2. 大会ポイント (白領域: Y=711~1008px) */
+.block-points {
+  position: absolute;
+  top: 11.0%;
+  bottom: 84.8%;
+  left: 8.5%;
+  right: 8.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/* 3. 制限時間 (白領域: Y=1101~1333px) */
+.block-time {
+  position: absolute;
+  top: 16.9%;
+  bottom: 79.8%;
+  left: 8.5%;
+  right: 8.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+/* 4. 再走・リセマラ (白領域: Y=1426~1821px) */
+.block-retry {
+  position: absolute;
+  top: 21.9%;
+  bottom: 72.4%;
+  left: 8.5%;
+  right: 8.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+/* 5. 相談 (白領域: Y=1913~2107px) */
+.block-consult {
+  position: absolute;
+  top: 29.3%;
+  bottom: 68.0%;
+  left: 8.5%;
+  right: 8.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+/* 6. TP一覧 (枠画像内に埋め込み済みのため完全非表示) */
+.block-tp {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+/* 7. 詳細ルールPDF (1.5倍拡大 ＆ 0.1%単位でさらに上に配置: top: 73.5%) */
+.block-pdf {
+  position: absolute !important;
+  top: 73.5% !important;
+  left: 8.5% !important;
+  right: 8.5% !important;
+  transform: translateY(-50%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.pdf-btn-column-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px !important;
+  width: 100%;
+}
+
+.pdf-btn-column-wrapper .frame-btn-img {
+  width: clamp(300px, 58%, 520px) !important; /* 1.5倍に拡大 */
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* 「PDFをブラウザで表示」ボタンのみさらに0.1%単位で上方向へ個別シフト */
+#btn-open-pdf-modal {
+  transform: translateY(-8px) !important;
+}
+
+/* 8. ルール説明動画 (0.1%単位で上に配置: top: 90.9%) */
+.block-video {
+  position: absolute !important;
+  top: 90.9% !important;
+  left: 8.5% !important;
+  right: 8.5% !important;
+  transform: translateY(-50%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.video-iframe-container {
+  width: clamp(220px, 58%, 480px) !important;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  background: #000;
+  margin: 0 auto;
+}
+
+.rule-video-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* 04. スケジュール (3カラムGrid構造で文字被りを100%防止 ＆ 白枠目いっぱい活用) */
+#schedule .frame-container {
+  aspect-ratio: 1924 / 1177;
+}
+
+#schedule .frame-overlay-content {
+  position: absolute;
+  top: 53%;
+  left: 8%;
+  right: 8%;
+  width: 84%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overview-text {
+  font-size: clamp(0.78rem, 1.25vw, 0.98rem);
+  font-weight: 700;
+  line-height: 1.7;
+  color: #1c1209;
+  text-align: left;
+}
+
+/* 参加方法リスト */
+.entry-subtext {
+  font-size: clamp(0.75rem, 1.15vw, 0.92rem);
+  font-weight: 700;
+  line-height: 1.65;
+  color: #1c1209;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.entry-condition-list {
+  font-size: clamp(0.72rem, 1.1vw, 0.88rem);
+  font-weight: 600;
+  line-height: 1.75;
+  color: #1c1209;
+  padding-left: 18px;
+  margin: 0;
+  text-align: left;
+}
+
+/* 画像ボタン (応募はこちら, ブラウザで表示, ダウンロード) */
+.frame-btn-wrapper {
+  margin-top: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.image-btn-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.image-btn-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* 応募はこちらからボタン (存在感たっぷりにサイズ拡大) */
+.frame-btn-img {
+  width: clamp(280px, 52%, 480px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: transform 0.2s ease;
+}
+
+.frame-btn-img:hover {
+  transform: scale(1.03);
+}
+
+/* PDFボタンペア (ブラウザで表示, ダウンロード を大きく横並び) */
+.pdf-btn-pair-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+.pdf-btn-img {
+  width: clamp(210px, 46%, 380px);
+  height: auto;
+  display: block;
+  max-width: 48%;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: transform 0.2s ease;
+}
+
+.pdf-btn-img:hover {
+  transform: scale(1.04);
+}
+
+/* ルール用テキスト (文章は左寄せ) */
+.rule-text {
+  font-size: clamp(0.75rem, 1.15vw, 0.90rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #1c1209;
+  text-align: left;
+  margin: 0;
+}
+
+.rule-subtext {
+  font-size: clamp(0.75rem, 1.15vw, 0.90rem);
+  font-weight: 700;
+  color: #2b2118;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* 注意書き (灰色の背景ピルを完全に除去) */
+.notice-pill-gray {
+  font-size: clamp(0.70rem, 1.0vw, 0.82rem);
+  font-weight: 600;
+  color: #4a5568;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  display: block;
+  margin-top: 4px;
+  text-align: left;
+}
+
+/* TP テーブル グループ (超コンパクト設計) */
+.tp-table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.tp-group {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #dce4ed;
+}
+
+.tp-group-label {
+  width: 18%;
+  min-width: 75px;
+  background-color: #132454;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: clamp(0.68rem, 0.95vw, 0.80rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4px 6px;
+  box-sizing: border-box;
+}
+
+.tp-group-content {
+  width: 82%;
+  background-color: #ffffff;
+  padding: 3px 10px;
+  box-sizing: border-box;
+}
+
+.tp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+  border-bottom: 1px solid #edf2f7;
+  font-size: clamp(0.65rem, 0.9vw, 0.76rem);
+  font-weight: 600;
+}
+
+.tp-row:last-child {
+  border-bottom: none;
+}
+
+.tp-val.positive {
+  font-weight: 800;
+  color: #00843d;
+}
+
+.tp-val.negative {
+  font-weight: 800;
+  color: #d32f2f;
+}
+
+.tp-val.zero {
+  font-weight: 900;
+  color: #c62828;
+}
+
+/* 動画埋め込みエリア */
+.video-embed-box {
+  background-color: #f7fafc;
+  border: 2px dashed #cbd5e0;
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  color: #4a5568;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.2vw, 1.0rem);
+  margin-top: 10px;
+}
+
+/* スケジュール (白枠エリアの横幅を目いっぱい広く活用 ＆ 絶対に改行させない) */
+#schedule .frame-container {
+  aspect-ratio: 1924 / 1177;
+}
+
+#schedule .frame-overlay-content {
+  position: absolute;
+  top: 54%;
+  left: 6%;
+  right: 6%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid #edf2f7;
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-label {
+  flex: 0 0 115px;
+  font-size: clamp(1.25rem, 1.95vw, 1.65rem);
+  font-weight: 800;
+  color: #1c1209;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.schedule-date {
+  flex: 1 1 auto;
+  font-size: clamp(1.30rem, 2.1vw, 1.80rem);
+  font-weight: 900;
+  font-family: var(--font-family-base);
+  color: #132454;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.schedule-badge {
+  flex: 0 0 auto;
+  min-width: 130px;
+  display: inline-block;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.schedule-badge.active {
+  background-color: #3b1b6d;
+}
+
+.schedule-badge.planned {
+  background-color: #718096;
+}
+
+@media (max-width: 768px) {
+  .frame-overlay-content {
+    padding: 16px 16px;
+  }
+  
+  .frame-white-card {
+    padding: 20px 18px;
+    border-radius: 20px;
+  }
+  
+  .tp-group {
+    flex-direction: column;
+  }
+  
+  .tp-group-label {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .tp-group-content {
+    width: 100%;
+  }
+
+  .schedule-item {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .schedule-label, .schedule-date {
+    width: 100%;
+  }
+}
+
+/* ------------------------------------------
+   Z. オレンジ区切りライン ＋ 配信結果タイトル
+   ------------------------------------------ */
+
+/* ライン全体のラッパー (スケジュール直後・アミ点エリア境界: 他セクションと同じ130pxの間隔) */
+.results-divider-wrapper {
+  position: relative;
+  /* フルブリード: 親のmax-widthを無視してビューポート全幅へ */
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  /* スケジュールセクションからの間隔 130px */
+  margin-top: 130px !important;
+  padding: 60px 0 0 0;
+  z-index: 1;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+/* オレンジ横ライン本体 */
+.results-orange-line {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background-color: #963200; /* ユーザー指定カラー */
+  /* 配信結果画像が中央にはみ出すための overflow 解放 */
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 配信結果タイトル画像 (ラインの上に重なるように配置) */
+.results-divider-title-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* frame-title-img と同じ横幅クランプで統一 */
+  width: clamp(280px, 56%, 560px) !important;
+  height: auto !important;
+  max-width: 90% !important;
+  object-fit: contain !important;
+  display: block;
+  z-index: 5;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* ------------------------------------------
+   Z+1. アミ点背景エリア (ラインより下)
+   ------------------------------------------ */
+.halftone-bg-area {
+  /* フルブリード: 親のmax-widthを無視してビューポート全幅へ */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+  /* アミ点パターン (さらに縮小: 24px) */
+  background-image: url("../assets/背景 アミ点.png");
+  background-size: 18px 18px;
+  background-repeat: repeat;
+  background-position: top left;
+  /* 配信結果タイトル画像の下半分分の上padding */
+  padding-top: 60px;
+}
+
+/* アミ点エリア下端の横ライン (同色 #963200) */
+.halftone-bg-area::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 6px;
+  background-color: #963200;
+  /* エリア最下部にぴったり配置 */
+  margin-top: 0;
+}
+
+/* ------------------------------------------
+   AA. ハーフトーンエリア カードUI (配信・結果)
+   ------------------------------------------ */
+
+.ht-section {
+  padding: 0 24px !important;
+  max-width: 1100px;
+  margin: 130px auto 130px auto !important;
+  box-sizing: border-box;
+}
+
+.ht-card {
+  background-color: #ffffff;
+  border: 3px solid #963200;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(150, 50, 0, 0.12);
+}
+
+/* DAY10からを2行目に強制改行するflex-break */
+.ht-tab-break {
+  flex-basis: 100%;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* タブナビ */
+.ht-tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f8f0ea;
+  border-bottom: 3px solid #963200;
+  padding: 10px 12px 0 12px;
+  gap: 6px 4px;
+}
+
+.ht-tab-btn {
+  font-family: var(--font-family-base);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #963200;
+  background: transparent;
+  border: 2px solid #963200;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  margin-bottom: -3px;
+}
+
+.ht-tab-btn:hover {
+  background-color: rgba(150, 50, 0, 0.1);
+}
+
+.ht-tab-btn.active {
+  background-color: #ffffff;
+  color: #963200;
+  border-bottom: 3px solid #ffffff;
+  z-index: 1;
+  position: relative;
+}
+
+/* タブパネル */
+.ht-tab-panels {
+  padding: 28px 28px 32px 28px;
+}
+
+.ht-tab-panel {
+  display: none;
+}
+
+.ht-tab-panel.active {
+  display: block;
+}
+
+.ht-team-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(150, 50, 0, 0.2);
+}
+
+.ht-team-total-tp {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #7a5a48;
+  background: rgba(150, 50, 0, 0.08);
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.ht-team-total-tp strong {
+  color: #963200;
+  font-size: 1.15rem;
+}
+
+.ht-team-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #963200;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+
+.ht-panel-note {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #7a5a48;
+  margin-bottom: 18px;
+  background-color: #fdf5ef;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border-left: 4px solid #963200;
+}
+
+/* テーブル */
+.ht-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(150, 50, 0, 0.2);
+}
+
+.ht-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family-base);
+  min-width: 400px;
+}
+
+.ht-table thead tr {
+  background-color: #963200;
+}
+
+.ht-table th {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 12px 16px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  letter-spacing: 0.06em;
+}
+
+.ht-table th:last-child { border-right: none; }
+
+.ht-table td {
+  padding: 11px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1c1209;
+  text-align: center;
+  border-bottom: 1px solid rgba(150, 50, 0, 0.1);
+  border-right: 1px solid rgba(150, 50, 0, 0.08);
+}
+
+.ht-table td:last-child { border-right: none; }
+.ht-table tbody tr:last-child td { border-bottom: none; }
+.ht-table tbody tr:nth-child(even) { background-color: #fdf5ef; }
+
+.ht-total-row td {
+  background-color: #963200 !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+}
+
+/* YouTube埋め込み */
+.yt-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+}
+
+.yt-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* ページ上部へ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 999;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top img {
+  width: 54px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.back-to-top:hover img {
+  transform: translateY(-4px) scale(1.06);
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+}
+
+.back-to-top:active img {
+  transform: translateY(0) scale(0.96);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+  }
+  .back-to-top img {
+    width: 44px;
+  }
+}
+
+/* ------------------------------------------
+   配信カード 準備中オーバーレイ (カード全体に半透明グレーのロックを被せる)
+   ------------------------------------------ */
+div#stream-card.ht-card.is-preparing {
+  position: relative;
+  /* 元々の白背景と茶色枠線（border: 3px solid #963200）は変更せずそのまま保持 */
+  background-color: #ffffff !important;
+  border: 3px solid #963200 !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 24px rgba(150, 50, 0, 0.12) !important;
+}
+
+/* カード全体（タブも含め）に被せる半透明ダークグレー幕 */
+div#stream-card.ht-card.is-preparing::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background-color: rgba(22, 14, 10, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 20;
+  cursor: not-allowed;
+  border-radius: 17px;
+}
+
+/* オーバーレイ中央に浮き出る準備中テキスト (ミリ単位の完全センター配置補正) */
+div#stream-card.ht-card.is-preparing::before {
+  content: "配信準備中";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 21;
+  color: #ffffff;
+  font-size: clamp(2.0rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  margin-right: -0.14em; /* letter-spacing による末尾右余白を殺して真の中央へ補正 */
+  text-align: center;
+  line-height: 1.6;
+  text-shadow: none !important;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+/* タブのクリックおよびフォーカスを無効化 */
+div#stream-card.ht-card.is-preparing .ht-tab-nav {
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+div#stream-card.ht-card.is-preparing .ht-tab-btn {
+  box-shadow: none !important;
+}
+
+div#stream-card.ht-card.is-preparing .ht-tab-panels {
+  background-color: transparent !important;
+  padding: 16px;
+}
+
+div#stream-card.ht-card.is-preparing .ht-tab-panel {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+.stream-placeholder-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  border: 1px dashed #cccccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.stream-placeholder-icon {
+  font-size: 3.2rem;
+  margin-bottom: 12px;
+  opacity: 0.75;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+.stream-placeholder-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #cccccc;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+
+
+
+

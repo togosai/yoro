@@ -1,0 +1,35 @@
+/* ==========================================
+   大会結果カード コンポーネントスタイル (results-card.css)
+   ========================================== */
+
+#results-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 3px solid #963200;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(150, 50, 0, 0.12);
+}
+
+.ht-team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.ht-team-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1c1209;
+}
+
+.ht-team-total-tp {
+  font-size: 1.1rem;
+  color: #963200;
+}
+
+.ht-team-total-tp strong {
+  font-size: 1.3rem;
+}

@@ -23,7 +23,7 @@ export const tournament = {
         teamSize: "3人1組",
         location: "TOGOSEN Univ.",
         // PDF Ver1.2記載の実際の応募フォームURL
-        formUrl: "https://forms.gle/6nNYgSwiK1m1oQ9F8",
+        formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSevq1Og17d1jrtjcmRhXGxcrlIAyD2bUdXja3CMw5iMP1VEFA/viewform?usp=dialog",
         notice: {
             ja: "※ 外部の Google Forms へ移動します",
             en: "※ Opens external Google Forms"

@@ -1108,7 +1108,7 @@ section#overview.frame-section {
 }
 
 .video-iframe-container {
-  width: clamp(220px, 58%, 480px) !important;
+  width: clamp(286px, 75%, 624px) !important; /* 1.3倍に拡大 */
   aspect-ratio: 16 / 9;
   border-radius: 10px;
   overflow: hidden;

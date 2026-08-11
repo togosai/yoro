@@ -140,17 +140,342 @@
       </div>
     </div>
 
-    <!-- アミ点背景エリア開始 (コンポーネントマウントエリア) -->
+    <!-- アミ点背景エリア開始 (コンポーネントエリア) -->
     <div class="halftone-bg-area">
 
-      <!-- 配信準備中カード コンポーネントルート -->
-      <div id="stream-card-root"></div>
+      <!-- 配信カード (DAY1〜DAY12 タブ) -->
+      <section id="stream" class="ht-section">
+        <div class="ht-card is-preparing" id="stream-card">
 
-      <!-- 大会結果カード コンポーネントルート -->
-      <div id="results-card-root"></div>
+          <!-- タブナビゲーション -->
+          <div class="ht-tab-nav" role="tablist" aria-label="配信日程">
+            <button class="ht-tab-btn active" role="tab" data-tab="stream" data-day="1"  aria-selected="true" tabindex="-1">DAY 1</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="2"  aria-selected="false" tabindex="-1">DAY 2</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="3"  aria-selected="false" tabindex="-1">DAY 3</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="4"  aria-selected="false" tabindex="-1">DAY 4</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="5"  aria-selected="false" tabindex="-1">DAY 5</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="6"  aria-selected="false" tabindex="-1">DAY 6</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="7"  aria-selected="false" tabindex="-1">DAY 7</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="8"  aria-selected="false" tabindex="-1">DAY 8</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="9"  aria-selected="false" tabindex="-1">DAY 9</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="10" aria-selected="false" tabindex="-1">DAY 10</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="11" aria-selected="false" tabindex="-1">DAY 11</button>
+            <button class="ht-tab-btn" role="tab" data-tab="stream" data-day="12" aria-selected="false" tabindex="-1">DAY 12</button>
+          </div>
+
+          <!-- タブパネル群 -->
+          <div class="ht-tab-panels">
+            <div class="ht-tab-panel active" id="stream-panel-1" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-2" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-3" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-4" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-5" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-6" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-7" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-8" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-9" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-10" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-11" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+            <div class="ht-tab-panel" id="stream-panel-12" role="tabpanel">
+              <div class="stream-placeholder-box"></div>
+            </div>
+          </div><!-- /.ht-tab-panels -->
+
+        </div><!-- /.ht-card -->
+      </section>
+
+      <!-- 結果カード (全チーム + 8チーム詳細 = 9タブ) -->
+      <section id="results" class="ht-section">
+        <div class="ht-card" id="results-card">
+
+          <!-- タブナビゲーション -->
+          <div class="ht-tab-nav" role="tablist" aria-label="大会結果">
+            <button class="ht-tab-btn active" role="tab" data-tab="results" data-team="all"    aria-selected="true" >全チーム</button>
+            <button class="ht-tab-btn" role="tab" data-tab="results" data-team="team1"  aria-selected="false">MMJ</button>
+            <button class="ht-tab-btn" role="tab" data-tab="results" data-team="team2"  aria-selected="false">Ragequit team</button>
+            <button class="ht-tab-btn" role="tab" data-tab="results" data-team="team3"  aria-selected="false">未登録</button>
+            <button class="ht-tab-btn" role="tab" data-tab="results" data-team="team4"  aria-selected="false">未登録</button>
+            <button class="ht-tab-btn" role="tab" data-tab="results" data-team="team5"  aria-selected="false">未登録</button>
+            <button class="ht-tab-btn" role="tab" data-tab="results" data-team="team6"  aria-selected="false">未登録</button>
+            <button class="ht-tab-btn" role="tab" data-tab="results" data-team="team7"  aria-selected="false">未登録</button>
+            <button class="ht-tab-btn" role="tab" data-tab="results" data-team="team8"  aria-selected="false">未登録</button>
+          </div>
+
+          <!-- タブパネル群 -->
+          <div class="ht-tab-panels">
+
+            <!-- 全チーム -->
+            <div class="ht-tab-panel active" id="results-panel-all" role="tabpanel">
+              <div class="ht-table-wrapper">
+                <table class="ht-table">
+                  <thead>
+                    <tr>
+                      <th>順位</th>
+                      <th>チーム名</th>
+                      <th>合計TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>—</td><td>MMJ</td><td>—</td></tr>
+                    <tr><td>—</td><td>Ragequit team</td><td>—</td></tr>
+                    <tr><td>—</td><td>未登録</td><td>—</td></tr>
+                    <tr><td>—</td><td>未登録</td><td>—</td></tr>
+                    <tr><td>—</td><td>未登録</td><td>—</td></tr>
+                    <tr><td>—</td><td>未登録</td><td>—</td></tr>
+                    <tr><td>—</td><td>未登録</td><td>—</td></tr>
+                    <tr><td>—</td><td>未登録</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- MMJ -->
+            <div class="ht-tab-panel" id="results-panel-team1" role="tabpanel">
+              <div class="ht-team-header">
+                <span class="ht-team-total-tp">合計TP：<strong>—</strong></span>
+                <h3 class="ht-team-title">MMJ</h3>
+              </div>
+              <div class="ht-table-wrapper">
+                <table class="ht-table ht-team-table">
+                  <thead>
+                    <tr>
+                      <th>プレイヤー名</th>
+                      <th>DAY</th>
+                      <th>使用分隊</th>
+                      <th>エンディング</th>
+                      <th>TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>mindh4cker</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>Minku</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>JohnnyAK47</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Ragequit team -->
+            <div class="ht-tab-panel" id="results-panel-team2" role="tabpanel">
+              <div class="ht-team-header">
+                <span class="ht-team-total-tp">合計TP：<strong>—</strong></span>
+                <h3 class="ht-team-title">Ragequit team</h3>
+              </div>
+              <div class="ht-table-wrapper">
+                <table class="ht-table ht-team-table">
+                  <thead>
+                    <tr>
+                      <th>プレイヤー名</th>
+                      <th>DAY</th>
+                      <th>使用分隊</th>
+                      <th>エンディング</th>
+                      <th>TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>WingsVN</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>Halca</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>I Love Priestess</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- チームC -->
+            <div class="ht-tab-panel" id="results-panel-team3" role="tabpanel">
+              <div class="ht-team-header">
+                <span class="ht-team-total-tp">合計TP：<strong>—</strong></span>
+                <h3 class="ht-team-title">未登録</h3>
+              </div>
+              <div class="ht-table-wrapper">
+                <table class="ht-table ht-team-table">
+                  <thead>
+                    <tr>
+                      <th>プレイヤー名</th>
+                      <th>DAY</th>
+                      <th>使用分隊</th>
+                      <th>エンディング</th>
+                      <th>TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- チームD -->
+            <div class="ht-tab-panel" id="results-panel-team4" role="tabpanel">
+              <div class="ht-team-header">
+                <span class="ht-team-total-tp">合計TP：<strong>—</strong></span>
+                <h3 class="ht-team-title">未登録</h3>
+              </div>
+              <div class="ht-table-wrapper">
+                <table class="ht-table ht-team-table">
+                  <thead>
+                    <tr>
+                      <th>プレイヤー名</th>
+                      <th>DAY</th>
+                      <th>使用分隊</th>
+                      <th>エンディング</th>
+                      <th>TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- チームE -->
+            <div class="ht-tab-panel" id="results-panel-team5" role="tabpanel">
+              <div class="ht-team-header">
+                <span class="ht-team-total-tp">合計TP：<strong>—</strong></span>
+                <h3 class="ht-team-title">未登録</h3>
+              </div>
+              <div class="ht-table-wrapper">
+                <table class="ht-table ht-team-table">
+                  <thead>
+                    <tr>
+                      <th>プレイヤー名</th>
+                      <th>DAY</th>
+                      <th>使用分隊</th>
+                      <th>エンディング</th>
+                      <th>TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- チームF -->
+            <div class="ht-tab-panel" id="results-panel-team6" role="tabpanel">
+              <div class="ht-team-header">
+                <span class="ht-team-total-tp">合計TP：<strong>—</strong></span>
+                <h3 class="ht-team-title">未登録</h3>
+              </div>
+              <div class="ht-table-wrapper">
+                <table class="ht-table ht-team-table">
+                  <thead>
+                    <tr>
+                      <th>プレイヤー名</th>
+                      <th>DAY</th>
+                      <th>使用分隊</th>
+                      <th>エンディング</th>
+                      <th>TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- チームG -->
+            <div class="ht-tab-panel" id="results-panel-team7" role="tabpanel">
+              <div class="ht-team-header">
+                <span class="ht-team-total-tp">合計TP：<strong>—</strong></span>
+                <h3 class="ht-team-title">未登録</h3>
+              </div>
+              <div class="ht-table-wrapper">
+                <table class="ht-table ht-team-table">
+                  <thead>
+                    <tr>
+                      <th>プレイヤー名</th>
+                      <th>DAY</th>
+                      <th>使用分隊</th>
+                      <th>エンディング</th>
+                      <th>TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- チームH -->
+            <div class="ht-tab-panel" id="results-panel-team8" role="tabpanel">
+              <div class="ht-team-header">
+                <span class="ht-team-total-tp">合計TP：<strong>—</strong></span>
+                <h3 class="ht-team-title">未登録</h3>
+              </div>
+              <div class="ht-table-wrapper">
+                <table class="ht-table ht-team-table">
+                  <thead>
+                    <tr>
+                      <th>プレイヤー名</th>
+                      <th>DAY</th>
+                      <th>使用分隊</th>
+                      <th>エンディング</th>
+                      <th>TP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div><!-- /.ht-tab-panels -->
+
+        </div><!-- /.ht-card -->
+      </section>
 
     </div><!-- /.halftone-bg-area -->
 
+    <!-- お問合せ (Contact Section) -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <img src="./assets/お問合わせ.png" alt="お問合せ" class="contact-title-img">
+        <p class="contact-text">
+          大会に関するご質問・お問い合わせは、<br>
+          公式XのDM・リプライよりご連絡ください。
+        </p>
+      </div>
+    </section>
 
   </main>
 
@@ -172,7 +497,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-links">
-        <span class="footer-link-label">LINK</span>
+        <span class="footer-link-label">LINKS</span>
         
         <a id="footer-link-x" href="https://x.com/togosen" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (Twitter)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">

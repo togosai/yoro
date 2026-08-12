@@ -8,29 +8,101 @@
  */
 
 export const results = {
-    // 大会結果の公開状態（大会開始前は false）
+    // 【大会結果の公開状態】
+    // false: 「結果準備中」としてロック表示
+    // true : 結果表とチーム別詳細タブを公開
     published: false,
 
-    // 公開前の案内メッセージ
-    unpublishedMessage: {
-        ja: "大会開始後に公開されます。",
-        en: "Will be published after the tournament starts."
-    },
-
-    // チーム別スコア一覧（大会開始後に運用者が編集）
-    /*
+    // 【チーム・個人スコアデータ一覧】
+    // 順位・チーム名・合計TP・メンバー3名の詳細データを登録・編集できます。
     teams: [
         {
+            id: "team1",
             rank: 1,
-            name: "TEAM A",
-            totalTP: 320,
+            name: "MMJ",
+            totalTP: "—", // 例: 320 または "—"
             players: [
-                { name: "Player A", tp: 120 },
-                { name: "Player B", tp: 100 },
-                { name: "Player C", tp: 100 }
+                { name: "mindh4cker", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "Minku",      day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "JohnnyAK47", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
+        },
+        {
+            id: "team2",
+            rank: 2,
+            name: "Ragequit team",
+            totalTP: "—",
+            players: [
+                { name: "WingsVN",          day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "Halca",            day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "I Love Priestess", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
+        },
+        {
+            id: "team3",
+            rank: 3,
+            name: "未登録",
+            totalTP: "—",
+            players: [
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
+        },
+        {
+            id: "team4",
+            rank: 4,
+            name: "未登録",
+            totalTP: "—",
+            players: [
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
+        },
+        {
+            id: "team5",
+            rank: 5,
+            name: "未登録",
+            totalTP: "—",
+            players: [
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
+        },
+        {
+            id: "team6",
+            rank: 6,
+            name: "未登録",
+            totalTP: "—",
+            players: [
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
+        },
+        {
+            id: "team7",
+            rank: 7,
+            name: "未登録",
+            totalTP: "—",
+            players: [
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
+        },
+        {
+            id: "team8",
+            rank: 8,
+            name: "未登録",
+            totalTP: "—",
+            players: [
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
         }
     ]
-    */
-    teams: []
 };

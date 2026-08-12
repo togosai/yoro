@@ -62,7 +62,27 @@ export const tournament = {
         }
     ],
 
-    streams: [],
+    streamConfig: {
+        // 配信カードの準備中表示フラグ (true: 配信準備中を表示 / false: 準備中を解除して配信一覧・動画を表示)
+        isPreparing: true
+    },
+
+    // DAY 1〜12 の配信データ
+    // 配信URL (youtubeUrl) を入力すると、動画プレイヤーの埋め込みとYouTubeリンクボタンが自動生成されます。
+    streams: [
+        { day: 1, title: "DAY 1", date: "2026.09.21", youtubeUrl: "" },
+        { day: 2, title: "DAY 2", date: "2026.09.22", youtubeUrl: "" },
+        { day: 3, title: "DAY 3", date: "2026.09.23", youtubeUrl: "" },
+        { day: 4, title: "DAY 4", date: "2026.09.24", youtubeUrl: "" },
+        { day: 5, title: "DAY 5", date: "2026.09.25", youtubeUrl: "" },
+        { day: 6, title: "DAY 6", date: "2026.09.26", youtubeUrl: "" },
+        { day: 7, title: "DAY 7", date: "2026.09.27", youtubeUrl: "" },
+        { day: 8, title: "DAY 8", date: "2026.09.28", youtubeUrl: "" },
+        { day: 9, title: "DAY 9", date: "2026.09.29", youtubeUrl: "" },
+        { day: 10, title: "DAY 10", date: "2026.09.30", youtubeUrl: "" },
+        { day: 11, title: "DAY 11", date: "2026.10.01", youtubeUrl: "" },
+        { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "" }
+    ],
 
     assets: {
         logoHeader: "./assets/東合祭ロゴ横.png",

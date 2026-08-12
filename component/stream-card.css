@@ -2,8 +2,8 @@
    配信準備中カード コンポーネントスタイル (stream-card.css)
    ========================================== */
 
-/* 配信カード全体を配信準備中としてロックするスタイル */
-div#stream-card.ht-card.is-preparing {
+/* 配信カード・結果カード全体を準備中としてロックするスタイル */
+div.ht-card.is-preparing {
   position: relative !important;
   overflow: hidden !important;
   background-color: #ffffff !important;
@@ -11,16 +11,18 @@ div#stream-card.ht-card.is-preparing {
   border-radius: 20px !important;
   box-shadow: 0 4px 24px rgba(150, 50, 0, 0.12) !important;
   pointer-events: auto !important;
+  min-height: 240px !important;
 }
 
-/* 配信準備中カード内のタブクリックを無効化 */
-div#stream-card.ht-card.is-preparing .ht-tab-nav {
+/* 準備中カード内のタブ・コンテンツ操作を無効化 */
+div.ht-card.is-preparing .ht-tab-nav,
+div.ht-card.is-preparing .ht-tab-panels {
   pointer-events: none !important;
   user-select: none !important;
 }
 
 /* ダークグレー半透明オーバーレイ幕 */
-div#stream-card.ht-card.is-preparing::after {
+div.ht-card.is-preparing::after {
   content: '' !important;
   position: absolute !important;
   top: 0 !important;
@@ -35,9 +37,9 @@ div#stream-card.ht-card.is-preparing::after {
   backdrop-filter: blur(1px) !important;
 }
 
-/* 「配信準備中」白太文字 (シャドウなし・極太中央配置) */
-div#stream-card.ht-card.is-preparing::before {
-  content: '配信準備中' !important;
+/* 「配信準備中」/「結果準備中」白太文字 (中央配置) */
+div.ht-card.is-preparing::before {
+  content: '準備中' !important;
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
@@ -51,6 +53,14 @@ div#stream-card.ht-card.is-preparing::before {
   pointer-events: none !important;
   white-space: nowrap !important;
   text-shadow: none !important;
+}
+
+div#stream-card.ht-card.is-preparing::before {
+  content: '配信準備中' !important;
+}
+
+div#results-card.ht-card.is-preparing::before {
+  content: '結果準備中' !important;
 }
 
 .stream-placeholder-box {

@@ -7,6 +7,7 @@ import { tournament } from './data.js';
 import { results } from './results.js';
 import { tpData } from './tp.js';
 import { translations, terms, getStoredLanguage, setStoredLanguage } from './i18n.js';
+import { initTabs } from './tabs.js';
 
 let currentLang = getStoredLanguage();
 
@@ -94,6 +95,9 @@ function renderAll() {
     renderStream();
     renderResults();
     renderFooter();
+    
+    // 動的コンテンツ生成後にタブイベントを再登録
+    initTabs();
 }
 
 function renderI18nTexts() {
@@ -261,32 +265,192 @@ function renderSchedule() {
     container.innerHTML = html;
 }
 
-function renderStream() {
-    const container = document.getElementById('stream-container');
-    if (!container) return;
+/**
+ * YouTube URLから埋め込み用URLを自動抽出
+ */
+function extractYoutubeEmbedUrl(url) {
+    if (!url || typeof url !== 'string') return null;
+    const trimmed = url.trim();
+    if (!trimmed) return null;
+    if (trimmed.includes('youtube.com/embed/')) return trimmed;
 
-    if (!tournament.streams || tournament.streams.length === 0) {
-        container.innerHTML = `
-            <div class="placeholder-box" style="text-align: center; padding: 36px 20px;">
-                <p style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin: 0;">更新次第開放予定</p>
-            </div>
-        `;
-        return;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|live\/)([^#\&\?]*).*/;
+    const match = trimmed.match(regExp);
+    if (match && match[2] && match[2].length === 11) {
+        return `https://www.youtube.com/embed/${match[2]}`;
     }
+    return null;
 }
 
-function renderResults() {
-    const container = document.getElementById('results-container');
-    if (!container) return;
+/**
+ * 配信カード (DAY1〜DAY12) の動的レンダリング
+ */
+function renderStream() {
+    const card = document.getElementById('stream-card');
+    if (!card) return;
 
-    if (!results || results.length === 0) {
-        container.innerHTML = `
-            <div class="placeholder-box" style="text-align: center; padding: 36px 20px;">
-                <p style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin: 0;">更新次第開放予定</p>
+    const isPreparing = tournament.streamConfig ? tournament.streamConfig.isPreparing : true;
+
+    // 準備中クラスのトグル
+    if (isPreparing) {
+        card.classList.add('is-preparing');
+    } else {
+        card.classList.remove('is-preparing');
+    }
+
+    const panelsContainer = card.querySelector('.ht-tab-panels');
+    if (!panelsContainer) return;
+
+    const streams = tournament.streams || [];
+    if (streams.length === 0) return;
+
+    let panelsHtml = '';
+    streams.forEach((item, index) => {
+        const dayNum = item.day || (index + 1);
+        const isActive = index === 0 ? 'active' : '';
+        const embedUrl = extractYoutubeEmbedUrl(item.youtubeUrl);
+
+        panelsHtml += `<div class="ht-tab-panel ${isActive}" id="stream-panel-${dayNum}" role="tabpanel">`;
+        
+        if (embedUrl) {
+            panelsHtml += `
+                <div class="stream-content-box" style="padding: 20px 16px; text-align: center;">
+                    <div style="position: relative; width: 100%; aspect-ratio: 16/9; margin-bottom: 16px; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 4px 16px rgba(0,0,0,0.3);">
+                        <iframe src="${embedUrl}" title="${item.title || 'DAY ' + dayNum}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></iframe>
+                    </div>
+                    <a href="${item.youtubeUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background-color: #ff0000; color: #ffffff; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(255,0,0,0.3); transition: transform 0.2s;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        YouTubeで視聴する
+                    </a>
+                </div>
+            `;
+        } else {
+            panelsHtml += `
+                <div class="stream-placeholder-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px;">
+                    <p style="font-size: 1.3rem; font-weight: 800; color: #ffffff; margin: 0 0 8px 0;">📹 配信枠準備中 (${item.title || 'DAY ' + dayNum})</p>
+                    <p style="font-size: 0.95rem; color: #cccccc; margin: 0;">配信URLが登録されると、ここに動画プレイヤーが表示されます。</p>
+                </div>
+            `;
+        }
+        panelsHtml += `</div>`;
+    });
+
+    panelsContainer.innerHTML = panelsHtml;
+}
+
+/**
+ * 大会結果カード (全チーム ＋ チーム詳細) の動的レンダリング
+ */
+function renderResults() {
+    const card = document.getElementById('results-card');
+    if (!card) return;
+
+    const published = results ? results.published : false;
+
+    // 非公開（準備中）の場合のクラス切替
+    if (!published) {
+        card.classList.add('is-preparing');
+    } else {
+        card.classList.remove('is-preparing');
+    }
+
+    const navContainer = card.querySelector('.ht-tab-nav');
+    const panelsContainer = card.querySelector('.ht-tab-panels');
+    if (!navContainer || !panelsContainer) return;
+
+    const teams = (results && results.teams) ? results.teams : [];
+
+    // 1. タブナビゲーションの動的生成
+    let navHtml = `<button class="ht-tab-btn active" role="tab" data-tab="results" data-team="all" aria-selected="true">全チーム</button>`;
+    teams.forEach((t, i) => {
+        const teamKey = t.id || `team${i + 1}`;
+        navHtml += `<button class="ht-tab-btn" role="tab" data-tab="results" data-team="${teamKey}" aria-selected="false">${t.name || '未登録'}</button>`;
+    });
+    navContainer.innerHTML = navHtml;
+
+    // 2. パネル群の動的生成
+    let panelsHtml = '';
+
+    // (A) 全チーム順位表パネル
+    panelsHtml += `
+        <div class="ht-tab-panel active" id="results-panel-all" role="tabpanel">
+            <div class="ht-table-wrapper">
+                <table class="ht-table">
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>チーム名</th>
+                            <th>合計TP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    `;
+    teams.forEach((t, i) => {
+        panelsHtml += `
+            <tr>
+                <td>${t.rank ? t.rank : (i + 1)}</td>
+                <td><strong>${t.name || '未登録'}</strong></td>
+                <td>${t.totalTP !== undefined ? t.totalTP : '—'}</td>
+            </tr>
+        `;
+    });
+    panelsHtml += `
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+
+    // (B) 各チーム詳細パネル
+    teams.forEach((t, i) => {
+        const teamKey = t.id || `team${i + 1}`;
+        const players = t.players || [
+            { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+            { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+            { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+        ];
+
+        panelsHtml += `
+            <div class="ht-tab-panel" id="results-panel-${teamKey}" role="tabpanel">
+                <div class="ht-team-header">
+                    <span class="ht-team-total-tp">合計TP：<strong>${t.totalTP !== undefined ? t.totalTP : '—'}</strong></span>
+                    <h3 class="ht-team-title">${t.name || '未登録'}</h3>
+                </div>
+                <div class="ht-table-wrapper">
+                    <table class="ht-table ht-team-table">
+                        <thead>
+                            <tr>
+                                <th>プレイヤー名</th>
+                                <th>DAY</th>
+                                <th>使用分隊</th>
+                                <th>エンディング</th>
+                                <th>TP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        `;
+
+        players.forEach(p => {
+            panelsHtml += `
+                <tr>
+                    <td><strong>${p.name || '—'}</strong></td>
+                    <td>${p.day || '—'}</td>
+                    <td>${p.squad || '—'}</td>
+                    <td>${p.ending || '—'}</td>
+                    <td>${p.tp !== undefined ? p.tp : '—'}</td>
+                </tr>
+            `;
+        });
+
+        panelsHtml += `
+                        </tbody>
+                    </table>
+                </div>
             </div>
         `;
-        return;
-    }
+    });
+
+    panelsContainer.innerHTML = panelsHtml;
 }
 
 function renderFooter() {
@@ -300,3 +464,4 @@ function renderFooter() {
         linkYoutube.href = tournament.links.youtube;
     }
 }
+

@@ -39,9 +39,9 @@ export const results = {
             ]
         },
         {
-            id: "temp name",
+            id: "team3",
             rank: 3,
-            name: "",
+            name: "temp name",
             totalTP: "—",
             players: [
                 { name: "Azen", day: "—", squad: "—", ending: "—", tp: "—" },

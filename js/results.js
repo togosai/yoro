@@ -11,7 +11,7 @@ export const results = {
     // 【大会結果の公開状態】
     // false: 「結果準備中」としてロック表示
     // true : 結果表とチーム別詳細タブを公開
-    published: false,
+    published: true,
 
     // 【チーム・個人スコアデータ一覧】
     // 順位・チーム名・合計TP・メンバー3名の詳細データを登録・編集できます。
@@ -39,14 +39,14 @@ export const results = {
             ]
         },
         {
-            id: "team3",
+            id: "temp name",
             rank: 3,
-            name: "未登録",
+            name: "",
             totalTP: "—",
             players: [
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "Azen", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "Larfa", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "Kevthink", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {

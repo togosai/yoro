@@ -29,7 +29,7 @@ export const results = {
         },
         {
             id: "team2",
-            rank: 2,
+            rank: 1,
             name: "Ragequit team",
             totalTP: "—",
             players: [
@@ -40,7 +40,7 @@ export const results = {
         },
         {
             id: "team3",
-            rank: 3,
+            rank: 1,
             name: "temp name",
             totalTP: "—",
             players: [
@@ -51,7 +51,7 @@ export const results = {
         },
         {
             id: "team4",
-            rank: 4,
+            rank: 1,
             name: "未登録",
             totalTP: "—",
             players: [
@@ -62,7 +62,7 @@ export const results = {
         },
         {
             id: "team5",
-            rank: 5,
+            rank: 1,
             name: "未登録",
             totalTP: "—",
             players: [
@@ -73,7 +73,7 @@ export const results = {
         },
         {
             id: "team6",
-            rank: 6,
+            rank: 1,
             name: "未登録",
             totalTP: "—",
             players: [
@@ -84,7 +84,7 @@ export const results = {
         },
         {
             id: "team7",
-            rank: 7,
+            rank: 1,
             name: "未登録",
             totalTP: "—",
             players: [
@@ -95,7 +95,7 @@ export const results = {
         },
         {
             id: "team8",
-            rank: 8,
+            rank: 1,
             name: "未登録",
             totalTP: "—",
             players: [

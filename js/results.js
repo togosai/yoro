@@ -52,12 +52,12 @@ export const results = {
         {
             id: "team4",
             rank: 1,
-            name: "未登録",
+            name: "箱庭には0匹のコーラスがいます",
             totalTP: "—",
             players: [
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "ゆゆれみ", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "rate-dat", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "チューバイのはや", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {

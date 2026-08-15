@@ -63,23 +63,23 @@ export const results = {
         {
             id: "team5",
             rank: 1,
-            name: "未登録",
+            name: "team INTernational",
             totalTP: "—",
             players: [
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "Die Alive", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "CelerYi", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "空気", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
             id: "team6",
             rank: 1,
             name: "未登録",
-            totalTP: "—",
+            totalTP: "sakichan sakichan sakichan",
             players: [
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "Jarvis", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "Grubbie", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "d1sgraceee", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {

@@ -74,8 +74,8 @@ export const results = {
         {
             id: "team6",
             rank: 1,
-            name: "未登録",
-            totalTP: "sakichan sakichan sakichan",
+            name: "sakichan sakichan sakichan",
+            totalTP: "—",
             players: [
                 { name: "Jarvis", day: "—", squad: "—", ending: "—", tp: "—" },
                 { name: "Grubbie", day: "—", squad: "—", ending: "—", tp: "—" },

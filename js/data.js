@@ -19,7 +19,7 @@ export const tournament = {
         end: "2026-08-21",
         displayPeriod: "2026.08.01 — 2026.08.21",
         currentTeams: 1,
-        maxTeams: 8,
+        maxTeams: 10,
         teamSize: "3人1組",
         location: "TOGOSEN Univ.",
         // PDF Ver1.2記載の実際の応募フォームURL
@@ -67,7 +67,7 @@ export const tournament = {
         isPreparing: true
     },
 
-    // DAY 1〜12 の配信データ
+    // DAY 1〜15 の配信データ
     // 配信URL (youtubeUrl) を入力すると、動画プレイヤーの埋め込みとYouTubeリンクボタンが自動生成されます。
     streams: [
         { day: 1, title: "DAY 1", date: "2026.09.21", youtubeUrl: "https://youtu.be/GUdFH_hzzq4" },
@@ -81,7 +81,10 @@ export const tournament = {
         { day: 9, title: "DAY 9", date: "2026.09.29", youtubeUrl: "" },
         { day: 10, title: "DAY 10", date: "2026.09.30", youtubeUrl: "" },
         { day: 11, title: "DAY 11", date: "2026.10.01", youtubeUrl: "" },
-        { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "" }
+        { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "" },
+        { day: 13, title: "DAY 13", date: "2026.10.03", youtubeUrl: "" },
+        { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "" },
+        { day: 15, title: "DAY 15", date: "2026.10.05", youtubeUrl: "" }
     ],
 
     assets: {

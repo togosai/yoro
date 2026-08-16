@@ -103,6 +103,28 @@ export const results = {
                 { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
                 { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
+        },
+        {
+            id: "team9",
+            rank: 9,
+            name: "未登録",
+            totalTP: "—",
+            players: [
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
+        },
+        {
+            id: "team10",
+            rank: 10,
+            name: "未登録",
+            totalTP: "—",
+            players: [
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+            ]
         }
     ]
 };

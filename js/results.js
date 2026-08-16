@@ -85,12 +85,12 @@ export const results = {
         {
             id: "team7",
             rank: 1,
-            name: "未登録",
+            name: "マジカルドスワンコ",
             totalTP: "—",
             players: [
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "ナツホ", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "わっしょイ", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "しばケット", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {

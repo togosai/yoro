@@ -107,12 +107,12 @@ export const results = {
         {
             id: "team9",
             rank: 9,
-            name: "未登録",
+            name: "天啓得たり得なかったり",
             totalTP: "—",
             players: [
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "花嶺かざり", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "heria", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "Rindo3373", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {

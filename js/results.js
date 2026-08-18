@@ -96,12 +96,12 @@ export const results = {
         {
             id: "team8",
             rank: 1,
-            name: "未登録",
+            name: "終結の肉体に救済を",
             totalTP: "—",
             players: [
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "黒", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "ひなぶ", day: "—", squad: "—", ending: "—", tp: "—" },
+                { name: "すごい🕊", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {

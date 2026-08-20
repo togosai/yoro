@@ -94,8 +94,8 @@ export const tournament = {
 
     resources: {
         rulesPdf: {
-            ja: "./assets/rulebook_ja_1.2.pdf",
-            en: "./assets/rulebook_en_1.2.pdf"
+            ja: "./assets/rulebook_ja_2.0.pdf",
+            en: "./assets/rulebook_en_2.0.pdf"
         },
         rulesVideoUrl: ""
     },

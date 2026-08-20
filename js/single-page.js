@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (openPdfBtn && pdfModal && pdfIframe) {
     openPdfBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      pdfIframe.src = './assets/rulebook_ja_1.2.pdf';
+      pdfIframe.src = './assets/rulebook_ja_2.0.pdf';
       pdfModal.classList.add('active');
       document.body.style.overflow = 'hidden';
     });

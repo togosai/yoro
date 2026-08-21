@@ -114,17 +114,6 @@ export const results = {
                 { name: "heria", day: "—", squad: "—", ending: "—", tp: "—" },
                 { name: "Rindo3373", day: "—", squad: "—", ending: "—", tp: "—" }
             ]
-        },
-        {
-            id: "team10",
-            rank: 10,
-            name: "未登録",
-            totalTP: "—",
-            players: [
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "—", day: "—", squad: "—", ending: "—", tp: "—" }
-            ]
         }
     ]
 };

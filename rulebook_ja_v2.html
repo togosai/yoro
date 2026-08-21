@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>東合祭 -溶炉- 公式ルールブック Ver. 2.0</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700&display=swap');
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #dcdcdc;
+  font-family: 'LINE Seed JP', sans-serif;
+  color: #1a1a1a;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+
+.cover-page {
+  font-family: 'LINE Seed JP', system-ui, -apple-system, sans-serif;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  padding: 14mm 18mm 25mm 18mm; /* 下部余白を25mmに確保 */
+  background: #ffffff;
+  position: relative;
+  page-break-after: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1ページ目 (表紙) */
+.page-cover {
+  background: linear-gradient(135deg, #131217 0%, #1c1a24 50%, #291510 100%);
+  color: #ffffff;
+  padding: 22mm 20mm 20mm 20mm;
+  justify-content: space-between;
+}
+
+.cover-header {
+  border-bottom: 2px solid #d94b15;
+  padding-bottom: 15px;
+}
+
+.cover-sub {
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #f2a679;
+  text-transform: uppercase;
+}
+
+.cover-body {
+  margin-top: 80px;
+}
+
+.cover-game-title {
+  font-size: 13pt;
+  color: #cccccc;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.cover-main-title {
+  font-size: 34pt;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0 0 10px 0;
+  color: #ffffff;
+}
+
+.cover-doc-title {
+  font-size: 24pt;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin: 0 0 15px 0;
+  color: #ffffff;
+}
+
+.cover-official-en {
+  font-size: 11pt;
+  letter-spacing: 3px;
+  color: #999999;
+  text-transform: uppercase;
+}
+
+.cover-footer {
+  border-top: 1px solid #444444;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cover-info {
+  font-size: 10pt;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.version-badge {
+  background: linear-gradient(90deg, #d94b15, #ea6328);
+  color: #ffffff;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 11.5pt;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* ヘッダー・フッター (2ページ目以降) */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #d94b15;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.header-title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #111111;
+}
+
+.header-version {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: #d94b15;
+}
+
+.page-content {
+  flex: 1;
+}
+
+/* 章タイトル */
+.chapter-title {
+  background: #1e2538;
+  color: #ffffff;
+  font-size: 12.5pt;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin: 10px 0 12px 0;
+}
+
+.section-title {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #111111;
+  margin: 14px 0 8px 0;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid #cccccc;
+  display: block;
+  width: 100%;
+}
+
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 13px;
+  background-color: #d94b15;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* カード / ボックス */
+.card-box {
+  background: #f7f9fa;
+  border: 1px solid #e1e6eb;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.highlight-box {
+  background: #fff5f0;
+  border-left: 4px solid #d94b15;
+  padding: 8px 12px;
+  margin: 8px 0;
+  font-size: 9.5pt;
+  border-radius: 0 6px 6px 0;
+}
+
+.important-badge {
+  color: #d94b15;
+  font-weight: 700;
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 12px 0;
+  font-size: 9pt;
+}
+
+th, td {
+  border: 1px solid #e0e0e0;
+  padding: 5px 9px;
+  text-align: left;
+}
+
+th {
+  background-color: #1e2538;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.table-score th:last-child, .table-score td:last-child {
+  text-align: center;
+  font-weight: 700;
+  color: #d94b15;
+}
+
+tr:nth-child(even) td {
+  background-color: #fcfcfc;
+}
+
+.score-plus {
+  color: #008844;
+  font-weight: 700;
+}
+
+.score-minus {
+  color: #cc0000;
+  font-weight: 700;
+}
+
+/* 目次レイアウト */
+.toc-container {
+  background: #f7f9fa;
+  border: 1px solid #e1e6eb;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+
+.toc-title {
+  font-size: 11.5pt;
+  font-weight: 700;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #d94b15;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 9pt;
+}
+
+.toc-section-header {
+  color: #d94b15;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.toc-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.toc-list li {
+  color: #444444;
+}
+
+/* Q&A スタイル */
+.qa-box {
+  margin-bottom: 10px;
+}
+
+.q-header {
+  background: #1e2538;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 5px 5px 0 0;
+  font-size: 9.5pt;
+  display: flex;
+  align-items: flex-start;
+}
+
+.q-badge {
+  background: #d94b15;
+  color: #ffffff;
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-right: 8px;
+  font-size: 8.5pt;
+  font-weight: 800;
+}
+
+.a-body {
+  background: #f9fafb;
+  border: 1px solid #e1e6eb;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  padding: 8px 12px;
+  font-size: 9pt;
+  color: #333333;
+  line-height: 1.5;
+}
+
+p {
+  margin: 0 0 6px 0;
+}
+
+ul {
+  margin: 0 0 8px 0;
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 3px;
+}
+
+.text-muted {
+  font-size: 8.5pt;
+  color: #666666;
+}
+
+.url-box {
+  border: 1px dashed #bbb;
+  padding: 6px 10px;
+  text-align: center;
+  background: #fff;
+  border-radius: 6px;
+  margin: 8px 0;
+  word-break: break-all;
+}
+
+.url-link {
+  color: #d94b15;
+  font-weight: 700;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: 表紙 -->
+<div class="page page-cover cover-page">
+  <div class="cover-header">
+    <div class="cover-sub">ARKNIGHTS INTEGRATED STRATEGIES #5 TOURNAMENT</div>
+  </div>
+  
+  <div class="cover-body">
+    <div class="cover-game-title">アークナイツ「サルカズの炉辺奇談」 チーム対抗大会</div>
+    <div class="cover-main-title">東合祭 -溶炉-</div>
+    <div class="cover-doc-title">公式ルールブック</div>
+    <div class="cover-official-en">OFFICIAL RULEBOOK</div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-info">
+      主催・運営：TOGOSEN Univ.<br>
+      対象ゲーム：アークナイツ（統合戦略#5 サルカズの炉辺奇談）
+    </div>
+    <div class="version-badge">Version 2.0</div>
+  </div>
+</div>
+
+<!-- PAGE 2: 目次 & 第1章 大会概要 -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+  
+  <div class="page-content">
+    <div class="toc-container">
+      <div class="toc-title">目次 (Table of Contents)</div>
+      <div class="toc-grid">
+        <div>
+          <div class="toc-section-header">第1章 大会概要</div>
+          <ul class="toc-list">
+            <li>1. 大会概要</li>
+            <li>2. 開催概要</li>
+            <li>3. 賞品</li>
+            <li>4. 応募について</li>
+            <li>5. 参加条件</li>
+          </ul>
+          <div class="toc-section-header" style="margin-top: 8px;">第2章 競技ルール</div>
+          <ul class="toc-list">
+            <li>6. 基本ルール</li>
+            <li>7. 大会ポイント（TP）</li>
+            <li>8. TP配点表</li>
+            <li>9. 順位決定</li>
+            <li>10. 制限時間</li>
+            <li>11. ラン開始位置</li>
+            <li>12. 再走・リセマラ</li>
+            <li>13. 禁止事項</li>
+          </ul>
+        </div>
+        <div>
+          <div class="toc-section-header">第3章 大会運営</div>
+          <ul class="toc-list">
+            <li>14. チーム内相談</li>
+            <li>15. 配信・Discord</li>
+            <li>16. 本戦当日の流れ</li>
+            <li>17. 事前収録</li>
+            <li>18. ペナルティ・失格</li>
+            <li>19. その他</li>
+          </ul>
+          <div class="toc-section-header" style="margin-top: 8px;">第4章 FAQ & 用語集</div>
+          <ul class="toc-list">
+            <li>第4章 FAQ（各カテゴリー別）</li>
+            <li>用語集 (Glossary)</li>
+            <li>更新履歴</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter-title">第1章 大会概要</div>
+
+    <div class="section-title">1. 大会概要</div>
+    <p><strong>東合祭 -溶炉-</strong> は、『アークナイツ』の「統合戦略#5：サルカズの炉辺奇談」を対象とした、3人1組によるチーム対抗大会です。</p>
+    <p>各チームメンバーがそれぞれ1回ずつ競技を行い、獲得した大会ポイント（Tournament Points：TP）の合計によって順位を決定します。</p>
+
+    <div class="highlight-box">
+      <span class="important-badge">重要：</span> 本大会ではゲーム内スコアは順位決定に使用せず、大会独自のTP配点を採用します。また、チーム内では使用する分隊および★6オペレーターを分担しながら攻略を進めるため、プレイヤー個人の実力だけでなく、チーム全体の戦略や役割分担も勝敗を左右します。
+    </div>
+
+    <div class="section-title">2. 開催概要</div>
+    <table>
+      <tr>
+        <th style="width: 28%;">項目</th>
+        <th>内容</th>
+      </tr>
+      <tr>
+        <td><strong>対象ゲーム</strong></td>
+        <td>アークナイツ（統合戦略#5「サルカズの炉辺奇談」）</td>
+      </tr>
+      <tr>
+        <td><strong>大会形式</strong></td>
+        <td>3人1組 チーム戦（順位決定：チーム合計TP）</td>
+      </tr>
+      <tr>
+        <td><strong>募集期間</strong></td>
+        <td>2026年8月1日 ～ 8月21日（最大8チーム先着順）</td>
+      </tr>
+      <tr>
+        <td><strong>事前収録期間</strong></td>
+        <td>2026年8月22日 ～ 9月20日</td>
+      </tr>
+      <tr>
+        <td><strong>本戦開催期間</strong></td>
+        <td><strong>2026年9月21日 ～ 10月5日（予定）</strong></td>
+      </tr>
+      <tr>
+        <td><strong>予備日・最終順位確定</strong></td>
+        <td><strong>2026年10月7日（予定）</strong></td>
+      </tr>
+      <tr>
+        <td><strong>使用可能オペレーター</strong></td>
+        <td>大会本戦初日時点で実装されている全オペレーター</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- PAGE 3: 第1章 3, 4, 5 -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div class="section-title">3. 賞品</div>
+    <p>優勝チームの各メンバーには、アークナイツの<strong>月間スカウトパック（月パス）2か月分相当</strong>を贈呈します。（※PayPal送金またはギフトカード。手数料が発生する場合は受賞者負担。）</p>
+
+    <div class="section-title">4. 応募について</div>
+    <p>指定のGoogleフォームより応募を受け付けます。運営によるチームメンバーの紹介・斡旋は行いません。SNS（X）を利用して募集する場合は、ハッシュタグ「<strong>#東合祭</strong>」の利用を推奨します。</p>
+
+    <div class="url-box">
+      <div style="font-weight: 700; margin-bottom: 4px; color: #555;">[応募フォームURL]</div>
+      <a class="url-link" href="https://forms.gle/7U7YNd1LU7jCA8Em9">https://forms.gle/7U7YNd1LU7jCA8Em9</a>
+    </div>
+
+    <div class="section-title">5. 参加条件</div>
+    <p>応募時には、チームメンバー3名それぞれのクリアリザルト（スクリーンショット）を提出してください。以下の条件をすべて満たしている必要があります。</p>
+    <ul>
+      <li>「魂の直面18」でクリアしていること</li>
+      <li>「バベルの誓い」および「アナサのカルマ」を所持していること</li>
+      <li>エンディング「素晴らしき日」へ到達していること</li>
+      <li>大会へ参加する本人が達成したリザルトであること</li>
+      <li>チーム内3名がそれぞれ異なる分隊でクリアしていること</li>
+      <li>募集期間中に撮影されたスクリーンショットであること</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PAGE 4: 第2章 競技ルール (6, 7) -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div class="chapter-title">第2章 競技ルール</div>
+
+    <div class="section-title">6. 基本ルール</div>
+    <p>本大会は、3人1組によるチーム戦で実施します。各チームメンバーはそれぞれ1回ずつ競技を行い、順位はチーム3名の獲得TP（Tournament Points）の合計によって決定します。</p>
+
+    <div class="card-box">
+      <div style="font-weight: 700; color: #1e2538; margin-bottom: 4px;">【分隊・★6オペレーターの制限】</div>
+      同一チーム内では、使用する分隊および★6オペレーターを重複して使用することはできません。<br>
+      <span class="text-muted">※使用する分隊および★6オペレーターの事前提出は不要です。競技開始時点（出撃時）でチーム内の重複がなければ問題ありません。</span>
+    </div>
+
+    <div class="card-box">
+      <div style="font-weight: 700; color: #1e2538; margin-bottom: 4px;">【投資システムの制限】</div>
+      チーム内で投資システムから引き出すことができる源石錐の数は、<strong>チーム合計で累計200源石錐まで</strong>とします。<br>
+      <span class="text-muted">※3名の走者が引き出した源石錐の合計数が200源石錐を超えないようにチーム内で調整・管理を行ってください。</span>
+    </div>
+
+    <div class="section-title">7. 大会ポイント（Tournament Points : TP）</div>
+    <p>指定された緊急作戦およびボスステージを対象として、大会ポイント（TP）を加点します。ゲーム内スコアは順位決定に使用せず、同名の通常作戦は加点対象外です。</p>
+
+    <ul>
+      <li><strong>【ステージクリアの大前提】</strong><br>すべてのTP加点は、<span class="important-badge">対象ステージをクリアすることが大前提</span>となります。作戦をクリアできなかった（撤退・途絶した）場合、基本クリアTPだけでなく各種ボーナスTP（5層出現ボーナス、混乱ボーナス等）も一切加点されません。</li>
+      <li><strong>【重複獲得】</strong><br>指定条件を満たしてクリアした場合、記載のTPを獲得します。同一ステージで複数条件（クリア、抜けなし、5層出現、混乱等）を満たした場合はすべて重複加点されます。</li>
+      <li><strong>【「抜けなし」の例外規定（敵「終曲のコーラス」）】</strong><br>緊急作戦において、防衛ラインに進入した敵が<span class="important-badge">敵ユニット「終曲のコーラス」のみ</span>である場合（「終曲のコーラス」以外の敵を1体も逃さずにクリアした場合）は、例外的に<strong>「抜けなし」</strong>条件を満たしたものとして扱います。（※なお、「拒絶は許さぬ」ではこの例外は適用されず、「終曲のコーラス」が進入した場合も通常通り「抜けあり」扱いとなります。）</li>
+      <li><strong>【同一緊急作戦の重複踏破について】</strong><br>同一の探索内で同名の緊急作戦を複数回踏破した場合、TPは重複して加点されず、<u>最も高いTPを獲得した1回分のスコアのみが適用</u>されます。</li>
+      <li>「聖都」を通過した場合、その走者の最終TPは<strong>0点</strong>となります。</li>
+      <li>「破棘成金分隊」または「位置測定分隊」を使用した場合、その走者の最終TPから<strong>40点減点</strong>します。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PAGE 5: 第2章 8. TP配点表 -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div class="section-title">8. TP配点表</div>
+    <p class="text-muted">以下に指定されたステージおよび達成条件に応じてTPが加点・減点されます。</p>
+
+    <table class="table-score">
+      <thead>
+        <tr>
+          <th style="width: 25%;">カテゴリー</th>
+          <th>対象ステージ / 条件</th>
+          <th style="width: 22%;">TP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="9"><strong>緊急作戦</strong></td>
+          <td>混沌（クリア）</td>
+          <td><span class="score-plus">+30</span></td>
+        </tr>
+        <tr>
+          <td>神出鬼没（クリア / 抜けなし）</td>
+          <td><span class="score-plus">+50 / +20</span></td>
+        </tr>
+        <tr>
+          <td>論争頻発（クリア / 抜けなし）</td>
+          <td><span class="score-plus">+50 / +20</span></td>
+        </tr>
+        <tr>
+          <td>サルカズの軍隊（クリア / 抜けなし）</td>
+          <td><span class="score-plus">+50 / +20</span></td>
+        </tr>
+        <tr>
+          <td>ライン生命の警備体制（クリア / 抜けなし）</td>
+          <td><span class="score-plus">+40 / +20</span></td>
+        </tr>
+        <tr>
+          <td>合意を求めて（クリア / 5層出現時）</td>
+          <td><span class="score-plus">+10 / +30</span></td>
+        </tr>
+        <tr>
+          <td>聖なる渇望（クリア / 5層出現時）</td>
+          <td><span class="score-plus">+10 / +30</span></td>
+        </tr>
+        <tr>
+          <td>「外道」（クリア / 5層出現時）</td>
+          <td><span class="score-plus">+20 / +40</span></td>
+        </tr>
+        <tr>
+          <td>洞天福地（クリア / 5層出現時）</td>
+          <td><span class="score-plus">+40 / +60</span></td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>3層強化ボス</strong></td>
+          <td>別れの歌の庭（クリア）</td>
+          <td><span class="score-plus">+40</span></td>
+        </tr>
+        <tr>
+          <td>敵に立ち向かう者（クリア）</td>
+          <td><span class="score-plus">+40</span></td>
+        </tr>
+        <tr>
+          <td>王冠のもとに（クリア）</td>
+          <td><span class="score-plus">+40</span></td>
+        </tr>
+        <tr>
+          <td rowspan="7"><strong>エンディング</strong></td>
+          <td>緊急授業（クリア / 混乱）</td>
+          <td><span class="score-plus">+40 / +10</span></td>
+        </tr>
+        <tr>
+          <td>思考矯正（クリア / 混乱）</td>
+          <td><span class="score-plus">+200 / +10</span></td>
+        </tr>
+        <tr>
+          <td>謁見（クリア / 混乱）</td>
+          <td><span class="score-plus">+100 / +10</span></td>
+        </tr>
+        <tr>
+          <td>魂の謁見（クリア / 混乱）</td>
+          <td><span class="score-plus">+200 / +10</span></td>
+        </tr>
+        <tr>
+          <td>聖都（通過）</td>
+          <td><span class="score-minus">最終TP 0点</span></td>
+        </tr>
+        <tr>
+          <td>説法（クリア / クイロン撃破 / 混乱）</td>
+          <td><span class="score-plus">+50 / +100 / +120</span></td>
+        </tr>
+        <tr>
+          <td>拒絶は許さぬ（クリア / 混乱 / 終結の実相 / 抜けなし / 実相+抜けなし）</td>
+          <td><span class="score-plus">+150 / +100 / +100<br>+80 / +40</span></td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>スコア補正</strong></td>
+          <td>破棘成金分隊を使用</td>
+          <td><span class="score-minus">-40</span></td>
+        </tr>
+        <tr>
+          <td>位置測定分隊を使用</td>
+          <td><span class="score-minus">-40</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-muted">
+      ※すべてのTP獲得は「ステージクリア」が大前提となります。<br>
+      ※緊急作戦において「終曲のコーラス」のみが漏れた場合は例外的に抜けなし扱いとなりますが、「拒絶は許さぬ」では適用されず「抜けあり」扱いとなります。
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: 第2章 9~12 -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div class="section-title">9. 順位決定</div>
+    <p>順位はチーム3名の獲得TP合計によって決定します。同点時は最低TP比較→最高TP比較の順で判定します。</p>
+
+    <div class="section-title">10. 制限時間</div>
+    <p>各走者の制限時間は<strong>3時間</strong>です。時間内開始の戦闘は終了まで継続可能です。</p>
+
+    <div class="section-title">11. ラン開始位置</div>
+    <div class="card-box">
+      分隊に関係なく、1層マップを確認するところからランを開始します。<br>
+      <span class="important-badge">※マス更新は禁止です。</span>
+    </div>
+
+    <div class="section-title">12. 再走・リセマラ</div>
+    <p>再走およびリセマラ（厳選）に関するルールは以下の通りです。</p>
+
+    <div class="card-box">
+      <div style="font-weight: 700; color: #1e2538; margin-bottom: 4px;">【通常の再走ルール】</div>
+      3層で戦闘マスに進入するまでに1回、3層ボーナスを厳選して再走することができます。<br>
+      <span class="important-badge">※この初回再走時に限り、3時間の制限時間が1回リセットされます。</span>
+    </div>
+
+    <div class="card-box">
+      <div style="font-weight: 700; color: #1e2538; margin-bottom: 4px;">【「出会い」が出なかった場合の再走ルール】</div>
+      1層最初の「思わぬ遭遇」でイベント「出会い」が出なかった場合、3層ボーナスを厳選して再走することができます。<br>
+      <ul>
+        <li>この再走は<strong>回数制限なし</strong>で行えます。</li>
+        <li><strong>3時間の制限時間はリセットされません。</strong></li>
+        <li>通常の再走権を使用済みであっても、「出会い」が出なかった場合は制限時間のリセットなしで厳選再走を継続できます。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 7: 第2章 13. 禁止事項 -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div class="section-title">13. 禁止事項</div>
+    
+    <div class="card-box" style="border-left: 4px solid #cc0000;">
+      <div style="font-weight: 700; color: #cc0000; margin-bottom: 4px;">【禁止秘宝】</div>
+      以下の秘宝の取得を禁止します。<u>取得した場合、その走者の最終TPを0点とします。</u><br>
+      <strong>・ロドスの門 ・主なき回想 ・預言の長角</strong>
+    </div>
+
+    <div class="card-box" style="border-left: 4px solid #cc0000;">
+      <div style="font-weight: 700; color: #cc0000; margin-bottom: 4px;">【マス更新の禁止】</div>
+      1層マップ確認時（競技開始前）のマス更新行為は禁止とします。
+    </div>
+
+    <div class="card-box" style="border-left: 4px solid #cc0000;">
+      <div style="font-weight: 700; color: #cc0000; margin-bottom: 4px;">【攻略情報・不正行為】</div>
+      <ul>
+        <li><strong>攻略情報の制限：</strong>競技中は自チーム以外から攻略情報を受けることを禁止します。配信コメントやSNS等を通じた情報取得も禁止です。（※競技開始前であれば自由）</li>
+        <li><strong>不正行為：</strong>チート、データ改ざん、代理プレイ、その他運営が不正と判断した行為を禁止します。違反時は即失格等の措置をとります。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 8: 第3章 大会運営 -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div class="chapter-title">第3章 大会運営</div>
+
+    <div class="section-title">14. チーム内相談</div>
+    <p>競技中はチームメンバー同士で自由相談が可能です（VC等を推奨、1名のみも可）。ただし競技中は運営メンバーのボイスを各自ミュートとし、チーム外から攻略情報や助言を受けることは禁止します。</p>
+
+    <div class="section-title">15. 配信・Discord</div>
+    <p>大会Discordでの画面共有は必須です。個人配信は自由ですが、競技中の配信コメント閲覧・返信・コメント越しの攻略情報取得は禁止します。通信トラブルによる一時的な映像途切れは許容しますが、長時間途切れた場合は運営の判断を仰ぎます。</p>
+
+    <div class="section-title">16. 本戦当日の流れ</div>
+    <p>大会期間中は1日につき最大2名の走者が順番に競技を行います（同時並行実施なし）。集合時間までに大会Discordサーバーへご参加ください。遅刻時は最大30分待機し、困難な場合は原則予備日へ延期します。試合終了後、運営がTPを集計します。</p>
+
+    <div class="section-title">17. 事前収録</div>
+    <p>本戦当日の参加が困難な場合、事前申請により事前収録での参加を認めます（2026年8月22日～9月20日）。</p>
+    <ul>
+      <li>実施日時を事前に申請し、Discord指定VC参加・画面共有・本戦同一ルールを適用すること。</li>
+      <li>録画は「複数ファイルを繋げる編集」のみ許可。カット編集や内容変更は禁止。</li>
+      <li>本戦開始後に事前収録へ変更することはできません。</li>
+    </ul>
+
+    <div class="section-title">18. ペナルティ・失格</div>
+    <p>ルール違反が確認された場合、原則として該当走者の最終TPを0点とします。内容によっては失格など、運営が適切な措置を決定します。</p>
+    <div class="highlight-box">
+      <strong>主な対象：</strong>禁止秘宝の取得、チーム外からの攻略情報取得、チート・改ざん、代理プレイ、マス更新、その他運営が悪質と判断した行為。
+    </div>
+
+    <div class="section-title">19. その他</div>
+    <p>本規約に記載されていない事項や、運営上判断が必要となる事項については、運営の裁定を最終決定とします。やむを得ず参加を辞退する場合は、速やかに運営へ連絡してください。</p>
+  </div>
+</div>
+
+<!-- PAGE 9: 第4章 FAQ & 用語集 (1/2) -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div class="chapter-title">第4章 FAQ & 用語集</div>
+
+    <div class="section-title">第4章 FAQ</div>
+    
+    <div style="font-weight: 700; color: #d94b15; margin: 8px 0 4px 0;">【応募・チーム編成】</div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>チームメンバーが見つかりません。</div>
+      <div class="a-body">運営ではチームメンバーの紹介・募集は行いません。参加者同士で募集してください。X（旧Twitter）などで「#東合祭」を利用した募集を推奨します。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>チーム内で使用する分隊や★6オペレーターは事前提出が必要ですか？</div>
+      <div class="a-body">提出は不要です。競技開始時点でチーム内の重複がなければ問題ありません。</div>
+    </div>
+
+    <div style="font-weight: 700; color: #d94b15; margin: 8px 0 4px 0;">【競技ルール】</div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>競技開始前にマスの更新は可能ですか？</div>
+      <div class="a-body">いいえ、1層マップ確認時（競技開始前）のマスの更新は禁止です。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>臨時招集で★6オペレーターを招集した場合、他のチームメンバーはそのオペレーターを招集できますか？</div>
+      <div class="a-body">いいえ、いかなる場合でも★6オペレーターは重複してはいけません。また、これはドクターの銀印で招集した場合も同じです。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>1層最初の遭遇で「出会い」が出なかった場合はどうすればいいですか？</div>
+      <div class="a-body">3層ボーナスを厳選して再走することができます。この再走は回数制限なしで行えますが、制限時間はリセットされません。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>再走はいつまで可能ですか？</div>
+      <div class="a-body">3層で最初の戦闘マスへ進入する前まで、1回に限り再走可能です。それ以降は再走できません。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>リセマラ中も制限時間は減りますか？</div>
+      <div class="a-body">はい。制限時間がリセットされるのは通常の初回再走時（1回のみ）です。「出会い」が出なかったことによる厳選再走では時間はリセットされず計測が継続されます。</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 10: 第4章 FAQ (2/2) -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div style="font-weight: 700; color: #d94b15; margin: 8px 0 4px 0;">【TP・順位】</div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>αモジュールの「ホルハイヤ」を編成して敵を漏らした場合「抜けなし」扱いになりますか？</div>
+      <div class="a-body">はい。その場合、オペレーター「ホルハイヤ」のαモジュールの効果で、耐久値が減らないので、「抜け無し」扱いとなります。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>同じ名前の通常作戦でもTPは加点されますか？</div>
+      <div class="a-body">いいえ。TPが加点されるのは、ルールブックに記載された対象の緊急作戦・3層強化ボス・エンディングのみです。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>5層出現ボーナスなどは、ステージクリアに失敗しても獲得できますか？</div>
+      <div class="a-body">いいえ。すべてのTP加点は「対象ステージをクリアすること」が大前提となります。作戦をクリアできなかった場合はボーナスTPも含め一切獲得できません。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>同一ステージで複数の加点条件を満たした場合、TPはどうなりますか？</div>
+      <div class="a-body">同一ステージ内で該当した条件のTPはすべて重複加算されます。（例：「洞天福地」が5層で出現しクリアした場合は【クリア+40】＋【5層出現+60】＝合計100点を獲得できます。）</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>緊急作戦で敵を漏らしてしまった場合、すべてのステージで「抜けなし」ボーナスを逃しますか？</div>
+      <div class="a-body">いいえ。緊急作戦において防衛ラインに進入した敵が「終曲のコーラス」のみである場合に限り、例外的に「抜けなし」ボーナスを獲得できます。（他の敵が進入した場合は通常通り「抜けあり」扱いとなります。）</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>「拒絶は許さぬ」で「終曲のコーラス」が防衛ラインに進入した場合も「抜けなし」扱いになりますか？</div>
+      <div class="a-body">いいえ。敵ユニット「終曲のコーラス」のみが漏れた場合の例外措置は「緊急作戦」のみ適用されます。「拒絶は許さぬ」では「終曲のコーラス」が逃げた場合も通常通り「抜けあり」扱いとなります。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>1回の探索内で同一の緊急作戦を複数回クリアした場合、TPは重複して加算されますか？</div>
+      <div class="a-body">いいえ、同一の緊急作戦を複数回踏破してもTPは重複加算されません。獲得TPが最も高かった1回分のスコアのみが適用されます。</div>
+    </div>
+
+    <div style="font-weight: 700; color: #d94b15; margin: 12px 0 4px 0;">【本戦・事前収録・ペナルティ】</div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>通信切断やゲームクラッシュが発生した場合はどうなりますか？</div>
+      <div class="a-body">原則としてその時点で競技終了となり、クラッシュ前までに確定（クリア）して獲得していたTPが集計対象となります。ただし、再走権が残っており、3層戦闘マスへ進入していない場合に限り再走を選択できます。</div>
+    </div>
+    <div class="qa-box">
+      <div class="q-header"><span class="q-badge">Q</span>録画の編集はできますか？</div>
+      <div class="a-body">複数の録画ファイルを繋げる編集のみ認めます。カット編集など、内容を変更する編集は禁止です。</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 11: 用語集 & 更新履歴 -->
+<div class="page">
+  <div class="page-header">
+    <div class="header-title">東合祭 -溶炉- 公式ルールブック</div>
+    <div class="header-version">Ver. 2.0</div>
+  </div>
+
+  <div class="page-content">
+    <div class="section-title">用語集 (Glossary)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">用語</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TP</strong></td>
+          <td>Tournament Points（大会ポイント）。本大会における順位決定に使用される独自得分点。</td>
+        </tr>
+        <tr>
+          <td><strong>抜けなし</strong></td>
+          <td>対象ステージにおいて、敵を1体も逃さずにクリアすること。（※緊急作戦で逃げた敵が「終曲のコーラス」のみである場合も「抜けなし」扱いとなります。）</td>
+        </tr>
+        <tr>
+          <td><strong>混乱</strong></td>
+          <td>ゲーム内デバフ状態である「混乱」が付与された状態で対象ステージをクリアした際の加点条件。</td>
+        </tr>
+        <tr>
+          <td><strong>3層ボーナス</strong></td>
+          <td>前回探索で3層到達後、次回探索開始時に付与される特典。リセマラで厳選が可能。</td>
+        </tr>
+        <tr>
+          <td><strong>出会い</strong></td>
+          <td>1層「思わぬ遭遇」で出現するイベント。未出現時は3層ボーナスの再走厳選ルールが適用される。</td>
+        </tr>
+        <tr>
+          <td><strong>リセマラ</strong></td>
+          <td>再走権を行使した際、希望する3層ボーナスや初期条件を得るために探索をやり直す行為。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-title" style="margin-top: 18px;">更新履歴 (Revision History)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 18%;">日付</th>
+          <th style="width: 18%;">バージョン</th>
+          <th>更新内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>2026年8月18日</strong></td>
+          <td><strong>Ver. 2.0</strong></td>
+          <td><strong>大規模型ルール改定（「出会い」スタート廃止、ラン開始位置の変更、出会いなし時再走ルールの追加、本戦日程の変更、拒絶は許さぬのTPを150へ調整）。</strong></td>
+        </tr>
+        <tr>
+          <td>2026年8月1日</td>
+          <td>Ver. 1.2</td>
+          <td>投資システム制限を追加、応募URLフォームを追加</td>
+        </tr>
+        <tr>
+          <td>2026年7月23日</td>
+          <td>Ver. 1.1</td>
+          <td>表紙デザイン修正、細かい表現の修正</td>
+        </tr>
+        <tr>
+          <td>2026年7月22日</td>
+          <td>Ver. 1.0</td>
+          <td>初版発行（東合祭-溶炉-公式ルールブック制定）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

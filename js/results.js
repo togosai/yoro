@@ -106,7 +106,7 @@ export const results = {
         },
         {
             id: "team9",
-            rank: 9,
+            rank: 1,
             name: "天啓得たり得なかったり",
             totalTP: "—",
             players: [

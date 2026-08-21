@@ -231,6 +231,25 @@
   animation: none;
 }
 
+/* カウントダウン・配信結果バナーリンク */
+.hero-banner-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.hero-banner-link.disabled-link {
+  cursor: default;
+  pointer-events: none;
+}
+.hero-banner-link.active-link {
+  cursor: pointer;
+  pointer-events: auto;
+}
+.hero-banner-link.active-link:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
 @keyframes titleFadeZoomIn {
   0% {
     opacity: 0;

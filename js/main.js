@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupPdfModalHandlers();
     initScrollActiveNav();
     initBackToTop();
+    initCountdownBanner();
     renderAll();
 });
 
@@ -463,5 +464,90 @@ function renderFooter() {
     if (linkYoutube && tournament.links.youtube) {
         linkYoutube.href = tournament.links.youtube;
     }
+}
+
+/**
+ * カウントダウンバナー動的切り替え
+ * (8/22: 30.png 〜 9/20: 01.png, 9/21以降: 配信結果はこちら.png & スムーズスクロール)
+ */
+function initCountdownBanner() {
+    const bannerImg = document.getElementById('hero-recruiting-img');
+    const bannerLink = document.getElementById('hero-banner-link');
+    if (!bannerImg || !bannerLink) return;
+
+    function updateBanner() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const date = now.getDate();
+
+        // URLパラメータ ?testDate=2026-09-21 によるテスト切替対応
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentMonth = month;
+        let currentDate = date;
+        if (urlParams.has('testDate')) {
+            const tDate = new Date(urlParams.get('testDate'));
+            if (!isNaN(tDate.getTime())) {
+                currentMonth = tDate.getMonth() + 1;
+                currentDate = tDate.getDate();
+            }
+        }
+
+        // 9月21日 以降
+        if (currentMonth > 9 || (currentMonth === 9 && currentDate >= 21)) {
+            bannerImg.src = './assets/配信結果はこちら.png';
+            bannerImg.alt = '配信結果はこちら';
+            bannerLink.href = '#stream';
+            bannerLink.classList.remove('disabled-link');
+            bannerLink.classList.add('active-link');
+            bannerLink.onclick = (e) => {
+                e.preventDefault();
+                const targetSection = document.querySelector('#stream') || document.querySelector('#results');
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+            return;
+        }
+
+        // 8/22 〜 9/20 カウントダウン (基準日 2026-09-21 00:00:00)
+        const targetDate = new Date(year, 8, 21, 0, 0, 0);
+        const checkDate = new Date(year, currentMonth - 1, currentDate, 0, 0, 0);
+
+        const diffTime = targetDate - checkDate;
+        const daysLeft = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+        if (daysLeft >= 1 && daysLeft <= 30) {
+            const formattedDays = String(daysLeft).padStart(2, '0');
+            bannerImg.src = `./assets/countdown/${formattedDays}.png`;
+            bannerImg.alt = `本戦まであと${daysLeft}日！`;
+            bannerLink.removeAttribute('href');
+            bannerLink.onclick = (e) => e.preventDefault();
+            bannerLink.classList.remove('active-link');
+            bannerLink.classList.add('disabled-link');
+        } else if (daysLeft > 30) {
+            // 8/21 以前
+            bannerImg.src = './assets/参加者募集中.png';
+            bannerImg.alt = '参加者募集中';
+            bannerLink.removeAttribute('href');
+            bannerLink.onclick = (e) => e.preventDefault();
+            bannerLink.classList.remove('active-link');
+            bannerLink.classList.add('disabled-link');
+        }
+    }
+
+    updateBanner();
+
+    // 深夜0時の自動更新タイマー
+    const now = new Date();
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 5);
+    const msUntilTomorrow = tomorrow - now;
+    setTimeout(() => {
+        updateBanner();
+        setInterval(updateBanner, 86400000);
+    }, msUntilTomorrow);
 }
 

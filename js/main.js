@@ -502,10 +502,13 @@ function initCountdownBanner() {
             bannerLink.classList.add('active-link');
             bannerLink.onclick = (e) => {
                 e.preventDefault();
-                const targetSection = document.querySelector('#stream') || document.querySelector('#results');
+                const targetSection = document.querySelector('.results-divider-wrapper') || document.querySelector('#stream') || document.querySelector('#results');
                 if (targetSection) {
+                    const headerOffset = 70;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                     window.scrollTo({
-                        top: targetSection.offsetTop - 80,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }

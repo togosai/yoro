@@ -81,9 +81,9 @@ export const tournament = {
         { day: 9, title: "DAY 9", date: "2026.09.29", youtubeUrl: "https://youtube.com/live/J5icEkcbCNI?feature=share" },
         { day: 10, title: "DAY 10", date: "2026.09.30", youtubeUrl: "https://youtube.com/live/o1tIQegHtwk?feature=share" },
         { day: 11, title: "DAY 11", date: "2026.10.01", youtubeUrl: "https://www.youtube.com/live/sfGYA2dI_EQ?si=S66VK0ZJMN3VTwdD" },
-        { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "" },
-        { day: 13, title: "DAY 13", date: "2026.10.03", youtubeUrl: "" },
-        { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "" }
+        { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "https://youtube.com/live/OiRz-Lr6xJA?feature=share" },
+        { day: 13, title: "DAY 13", date: "2026.10.03", youtubeUrl: "https://youtube.com/live/zgLtWOv3W9k?feature=share" },
+        { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "https://youtube.com/live/-pc6uQlLL-w?feature=share" }
     ],
 
     assets: {

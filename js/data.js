@@ -67,7 +67,7 @@ export const tournament = {
         isPreparing: true
     },
 
-    // DAY 1〜15 の配信データ
+    // DAY 1〜14 の配信データ
     // 配信URL (youtubeUrl) を入力すると、動画プレイヤーの埋め込みとYouTubeリンクボタンが自動生成されます。
     streams: [
         { day: 1, title: "DAY 1", date: "2026.09.21", youtubeUrl: "https://youtu.be/GUdFH_hzzq4" },
@@ -83,8 +83,7 @@ export const tournament = {
         { day: 11, title: "DAY 11", date: "2026.10.01", youtubeUrl: "" },
         { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "" },
         { day: 13, title: "DAY 13", date: "2026.10.03", youtubeUrl: "" },
-        { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "" },
-        { day: 15, title: "DAY 15", date: "2026.10.05", youtubeUrl: "" }
+        { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "" }
     ],
 
     assets: {

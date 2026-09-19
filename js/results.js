@@ -22,9 +22,9 @@ export const results = {
             name: "MMJ",
             totalTP: "—", // 例: 320 または "—"
             players: [
-                { name: "mindh4cker", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "Minku",      day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "JohnnyAK47", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "mindh4cker", day: "1", squad: "—", ending: "—", tp: "—" },
+                { name: "Minku",      day: "6", squad: "—", ending: "—", tp: "—" },
+                { name: "JohnnyAK47", day: "8", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
@@ -44,9 +44,9 @@ export const results = {
             name: "temp name",
             totalTP: "—",
             players: [
-                { name: "Azen", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "Larfa", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "Kevthink", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "Azen", day: "14", squad: "—", ending: "—", tp: "—" },
+                { name: "Larfa", day: "13", squad: "—", ending: "—", tp: "—" },
+                { name: "Kevthink", day: "12", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
@@ -55,9 +55,9 @@ export const results = {
             name: "箱庭には0匹のコーラスがいます",
             totalTP: "—",
             players: [
-                { name: "ゆゆれみ", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "rate-dat", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "チューバイのはや", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "ゆゆれみ", day: "11", squad: "—", ending: "—", tp: "—" },
+                { name: "rate-dat", day: "10", squad: "—", ending: "—", tp: "—" },
+                { name: "チューバイのはや", day: "13", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
@@ -66,9 +66,9 @@ export const results = {
             name: "team INTernational",
             totalTP: "—",
             players: [
-                { name: "Die Alive", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "CelerYi", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "空気", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "Die Alive", day: "6", squad: "—", ending: "—", tp: "—" },
+                { name: "CelerYi", day: "9", squad: "—", ending: "—", tp: "—" },
+                { name: "空気", day: "12", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
@@ -88,9 +88,9 @@ export const results = {
             name: "マジカルドスワンコ",
             totalTP: "—",
             players: [
-                { name: "ナツホ", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "わっしょイ", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "しばケット", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "ナツホ", day: "3", squad: "—", ending: "—", tp: "—" },
+                { name: "わっしょイ", day: "2", squad: "—", ending: "—", tp: "—" },
+                { name: "しばケット", day: "9", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
@@ -99,9 +99,9 @@ export const results = {
             name: "終結の肉体に救済を",
             totalTP: "—",
             players: [
-                { name: "黒", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "ひなぶ", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "すごい🕊", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "黒", day: "3", squad: "—", ending: "—", tp: "—" },
+                { name: "ひなぶ", day: "1", squad: "—", ending: "—", tp: "—" },
+                { name: "すごい🕊", day: "5", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {

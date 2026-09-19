@@ -70,7 +70,7 @@ export const tournament = {
     // DAY 1〜14 の配信データ
     // 配信URL (youtubeUrl) を入力すると、動画プレイヤーの埋め込みとYouTubeリンクボタンが自動生成されます。
     streams: [
-        { day: 1, title: "DAY 1", date: "2026.09.21", youtubeUrl: "https://youtube.com/live/VkPeis7a7WU?feature=share" },
+        { day: 1, title: "DAY 1", date: "2026.09.21", youtubeUrl: "https://www.youtube.com/live/VkPeis7a7WU?si=5r0lzLqAYQ_wVF90" },
         { day: 2, title: "DAY 2", date: "2026.09.22", youtubeUrl: "https://youtube.com/live/EmL5Fct1eXU?feature=share" },
         { day: 3, title: "DAY 3", date: "2026.09.23", youtubeUrl: "https://youtube.com/live/VLCqXI1puiY?feature=share" },
         { day: 4, title: "DAY 4", date: "2026.09.24", youtubeUrl: "https://youtube.com/live/JphadxwJTfs?feature=share" },
@@ -80,7 +80,7 @@ export const tournament = {
         { day: 8, title: "DAY 8", date: "2026.09.28", youtubeUrl: "https://youtube.com/live/MI8tv2pe7yw?feature=share" },
         { day: 9, title: "DAY 9", date: "2026.09.29", youtubeUrl: "https://youtube.com/live/J5icEkcbCNI?feature=share" },
         { day: 10, title: "DAY 10", date: "2026.09.30", youtubeUrl: "https://youtube.com/live/o1tIQegHtwk?feature=share" },
-        { day: 11, title: "DAY 11", date: "2026.10.01", youtubeUrl: "" },
+        { day: 11, title: "DAY 11", date: "2026.10.01", youtubeUrl: "https://www.youtube.com/live/sfGYA2dI_EQ?si=S66VK0ZJMN3VTwdD" },
         { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "" },
         { day: 13, title: "DAY 13", date: "2026.10.03", youtubeUrl: "" },
         { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "" }

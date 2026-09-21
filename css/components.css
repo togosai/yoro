@@ -1212,7 +1212,7 @@ section#overview.frame-section {
 
 /* 04. スケジュール (3カラムGrid構造で文字被りを100%防止 ＆ 白枠目いっぱい活用) */
 #schedule .frame-container {
-  aspect-ratio: 1924 / 1177;
+  aspect-ratio: 1924 / 3980;
 }
 
 #schedule .frame-overlay-content {
@@ -1427,7 +1427,7 @@ section#overview.frame-section {
 
 /* スケジュール (白枠エリアの横幅を目いっぱい広く活用 ＆ 絶対に改行させない) */
 #schedule .frame-container {
-  aspect-ratio: 1924 / 1177;
+  aspect-ratio: 1924 / 3980;
 }
 
 #schedule .frame-overlay-content {

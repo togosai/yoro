@@ -22,7 +22,7 @@ export const results = {
             name: "MMJ",
             totalTP: "—", // 例: 320 または "—"
             players: [
-                { name: "mindh4cker", day: "1", squad: "—", ending: "—", tp: "—" },
+                { name: "mindh4cker", day: "1", squad: "破棘成金", ending: "—", tp: "-40" },
                 { name: "Minku",      day: "6", squad: "—", ending: "—", tp: "—" },
                 { name: "JohnnyAK47", day: "8", squad: "—", ending: "—", tp: "—" }
             ]
@@ -33,9 +33,9 @@ export const results = {
             name: "Ragequit team",
             totalTP: "—",
             players: [
-                { name: "WingsVN",          day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "Halca",            day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "I Love Priestess", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "WingsVN",          day: "4", squad: "—", ending: "—", tp: "—" },
+                { name: "Halca",            day: "2", squad: "—", ending: "—", tp: "—" },
+                { name: "I Love Priestess", day: "11", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
@@ -77,9 +77,9 @@ export const results = {
             name: "sakichan sakichan sakichan",
             totalTP: "—",
             players: [
-                { name: "Jarvis", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "Grubbie", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "d1sgraceee", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "Jarvis", day: "10", squad: "—", ending: "—", tp: "—" },
+                { name: "Grubbie", day: "14", squad: "—", ending: "—", tp: "—" },
+                { name: "d1sgraceee", day: "7", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
@@ -100,7 +100,7 @@ export const results = {
             totalTP: "—",
             players: [
                 { name: "黒", day: "3", squad: "—", ending: "—", tp: "—" },
-                { name: "ひなぶ", day: "1", squad: "—", ending: "—", tp: "—" },
+                { name: "ひなぶ", day: "1", squad: "破棘成金", ending: "245★", tp: "550" },
                 { name: "すごい🕊", day: "5", squad: "—", ending: "—", tp: "—" }
             ]
         },
@@ -110,9 +110,9 @@ export const results = {
             name: "天啓得たり得なかったり",
             totalTP: "—",
             players: [
-                { name: "花嶺かざり", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "heria", day: "—", squad: "—", ending: "—", tp: "—" },
-                { name: "Rindo3373", day: "—", squad: "—", ending: "—", tp: "—" }
+                { name: "花嶺かざり", day: "4", squad: "—", ending: "—", tp: "—" },
+                { name: "heria", day: "5", squad: "—", ending: "—", tp: "—" },
+                { name: "Rindo3373", day: "8", squad: "—", ending: "—", tp: "—" }
             ]
         }
     ]

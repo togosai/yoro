@@ -18,9 +18,9 @@ export const results = {
     teams: [
         {
             id: "team1",
-            rank: 1,
+            rank: 9,
             name: "MMJ",
-            totalTP: "—", // 例: 320 または "—"
+            totalTP: "-40", // 例: 320 または "—"
             players: [
                 { name: "mindh4cker", day: "1", squad: "破棘成金", ending: "—", tp: "-40" },
                 { name: "Minku",      day: "6", squad: "—", ending: "—", tp: "—" },
@@ -29,7 +29,7 @@ export const results = {
         },
         {
             id: "team2",
-            rank: 1,
+            rank: 2,
             name: "Ragequit team",
             totalTP: "—",
             players: [
@@ -40,7 +40,7 @@ export const results = {
         },
         {
             id: "team3",
-            rank: 1,
+            rank: 2,
             name: "temp name",
             totalTP: "—",
             players: [
@@ -51,7 +51,7 @@ export const results = {
         },
         {
             id: "team4",
-            rank: 1,
+            rank: 2,
             name: "箱庭には0匹のコーラスがいます",
             totalTP: "—",
             players: [
@@ -62,7 +62,7 @@ export const results = {
         },
         {
             id: "team5",
-            rank: 1,
+            rank: 2,
             name: "team INTernational",
             totalTP: "—",
             players: [
@@ -73,7 +73,7 @@ export const results = {
         },
         {
             id: "team6",
-            rank: 1,
+            rank: 2,
             name: "sakichan sakichan sakichan",
             totalTP: "—",
             players: [
@@ -84,7 +84,7 @@ export const results = {
         },
         {
             id: "team7",
-            rank: 1,
+            rank: 2,
             name: "マジカルドスワンコ",
             totalTP: "—",
             players: [
@@ -97,7 +97,7 @@ export const results = {
             id: "team8",
             rank: 1,
             name: "終結の肉体に救済を",
-            totalTP: "—",
+            totalTP: "550",
             players: [
                 { name: "黒", day: "3", squad: "—", ending: "—", tp: "—" },
                 { name: "ひなぶ", day: "1", squad: "破棘成金", ending: "245★", tp: "550" },
@@ -106,7 +106,7 @@ export const results = {
         },
         {
             id: "team9",
-            rank: 1,
+            rank: 2,
             name: "天啓得たり得なかったり",
             totalTP: "—",
             players: [

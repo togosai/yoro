@@ -29,18 +29,18 @@ export const results = {
         },
         {
             id: "team2",
-            rank: 2,
+            rank: 1,
             name: "Ragequit team",
-            totalTP: "—",
+            totalTP: "690",
             players: [
                 { name: "WingsVN",          day: "4", squad: "—", ending: "—", tp: "—" },
-                { name: "Halca",            day: "2", squad: "—", ending: "—", tp: "—" },
+                { name: "Halca",            day: "2", squad: "擬態学者", ending: "245★", tp: "690" },
                 { name: "I Love Priestess", day: "11", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
             id: "team3",
-            rank: 2,
+            rank: 4,
             name: "temp name",
             totalTP: "—",
             players: [
@@ -51,7 +51,7 @@ export const results = {
         },
         {
             id: "team4",
-            rank: 2,
+            rank: 4,
             name: "箱庭には0匹のコーラスがいます",
             totalTP: "—",
             players: [
@@ -62,7 +62,7 @@ export const results = {
         },
         {
             id: "team5",
-            rank: 2,
+            rank: 4,
             name: "team INTernational",
             totalTP: "—",
             players: [
@@ -73,7 +73,7 @@ export const results = {
         },
         {
             id: "team6",
-            rank: 2,
+            rank: 4,
             name: "sakichan sakichan sakichan",
             totalTP: "—",
             players: [
@@ -84,18 +84,18 @@ export const results = {
         },
         {
             id: "team7",
-            rank: 2,
+            rank: 3,
             name: "マジカルドスワンコ",
-            totalTP: "—",
+            totalTP: "110",
             players: [
                 { name: "ナツホ", day: "3", squad: "—", ending: "—", tp: "—" },
-                { name: "わっしょイ", day: "2", squad: "—", ending: "—", tp: "—" },
+                { name: "わっしょイ", day: "2", squad: "霊魂護送", ending: "2", tp: "110" },
                 { name: "しばケット", day: "9", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
             id: "team8",
-            rank: 1,
+            rank: 2,
             name: "終結の肉体に救済を",
             totalTP: "550",
             players: [
@@ -106,7 +106,7 @@ export const results = {
         },
         {
             id: "team9",
-            rank: 2,
+            rank: 4,
             name: "天啓得たり得なかったり",
             totalTP: "—",
             players: [

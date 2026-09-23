@@ -72,7 +72,7 @@ export const tournament = {
     streams: [
         { day: 1, title: "DAY 1", date: "2026.09.21", youtubeUrl: "https://www.youtube.com/live/VkPeis7a7WU?si=5r0lzLqAYQ_wVF90" },
         { day: 2, title: "DAY 2", date: "2026.09.22", youtubeUrl: "https://youtube.com/live/EmL5Fct1eXU?feature=share" },
-        { day: 3, title: "DAY 3", date: "2026.09.23", youtubeUrl: "https://youtube.com/live/VLCqXI1puiY?feature=share" },
+        { day: 3, title: "DAY 3", date: "2026.09.23", youtubeUrl: "https://www.youtube.com/live/vaFA9y4ZvWQ?si=5eG1eUbMTAsEOmyV" },
         { day: 4, title: "DAY 4", date: "2026.09.24", youtubeUrl: "https://youtube.com/live/JphadxwJTfs?feature=share" },
         { day: 5, title: "DAY 5", date: "2026.09.25", youtubeUrl: "https://youtube.com/live/qCHOknWEvyI?feature=share" },
         { day: 6, title: "DAY 6", date: "2026.09.26", youtubeUrl: "https://youtube.com/live/uy9WJ4uApas?feature=share" },
@@ -81,7 +81,7 @@ export const tournament = {
         { day: 9, title: "DAY 9", date: "2026.09.29", youtubeUrl: "https://youtube.com/live/J5icEkcbCNI?feature=share" },
         { day: 10, title: "DAY 10", date: "2026.09.30", youtubeUrl: "https://youtube.com/live/o1tIQegHtwk?feature=share" },
         { day: 11, title: "DAY 11", date: "2026.10.01", youtubeUrl: "https://www.youtube.com/live/sfGYA2dI_EQ?si=S66VK0ZJMN3VTwdD" },
-        { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "https://youtube.com/live/OiRz-Lr6xJA?feature=share" },
+        { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "https://www.youtube.com/live/Vxoj1c7F4eU?si=n7alNsZdMBW23hq0" },
         { day: 13, title: "DAY 13", date: "2026.10.03", youtubeUrl: "https://youtube.com/live/zgLtWOv3W9k?feature=share" },
         { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "https://youtube.com/live/-pc6uQlLL-w?feature=share" }
     ],

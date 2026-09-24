@@ -86,9 +86,9 @@ export const results = {
             id: "team7",
             rank: 3,
             name: "マジカルドスワンコ",
-            totalTP: "110",
+            totalTP: "150",
             players: [
-                { name: "ナツホ", day: "3", squad: "—", ending: "—", tp: "—" },
+                { name: "ナツホ", day: "3", squad: "位置測定", ending: "—", tp: "40" },
                 { name: "わっしょイ", day: "2", squad: "霊魂護送", ending: "2", tp: "110" },
                 { name: "しばケット", day: "9", squad: "—", ending: "—", tp: "—" }
             ]
@@ -97,9 +97,9 @@ export const results = {
             id: "team8",
             rank: 2,
             name: "終結の肉体に救済を",
-            totalTP: "550",
+            totalTP: "630",
             players: [
-                { name: "黒", day: "3", squad: "—", ending: "—", tp: "—" },
+                { name: "黒", day: "3", squad: "高規格", ending: "2", tp: "80" },
                 { name: "ひなぶ", day: "1", squad: "破棘成金", ending: "245★", tp: "550" },
                 { name: "すごい🕊", day: "5", squad: "—", ending: "—", tp: "—" }
             ]

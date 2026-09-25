@@ -108,9 +108,9 @@ export const results = {
             id: "team9",
             rank: 3,
             name: "天啓得たり得なかったり",
-            totalTP: "630",
+            totalTP: "380",
             players: [
-                { name: "花嶺かざり", day: "4", squad: "援護戦術", ending: "245", tp: "630" },
+                { name: "花嶺かざり", day: "4", squad: "援護戦術", ending: "145", tp: "580" },
                 { name: "heria", day: "5", squad: "—", ending: "—", tp: "—" },
                 { name: "Rindo3373", day: "8", squad: "—", ending: "—", tp: "—" }
             ]

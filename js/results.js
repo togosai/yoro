@@ -97,21 +97,21 @@ export const results = {
             id: "team8",
             rank: 2,
             name: "終結の肉体に救済を",
-            totalTP: "630",
+            totalTP: "1210",
             players: [
                 { name: "黒", day: "3", squad: "高規格", ending: "2", tp: "80" },
                 { name: "ひなぶ", day: "1", squad: "破棘成金", ending: "245★", tp: "550" },
-                { name: "すごい🕊", day: "5", squad: "—", ending: "—", tp: "—" }
+                { name: "すごい🕊", day: "5", squad: "霊魂護送", ending: "245★", tp: "580" }
             ]
         },
         {
             id: "team9",
             rank: 3,
             name: "天啓得たり得なかったり",
-            totalTP: "380",
+            totalTP: "1090",
             players: [
                 { name: "花嶺かざり", day: "4", squad: "援護戦術", ending: "145", tp: "580" },
-                { name: "heria", day: "5", squad: "—", ending: "—", tp: "—" },
+                { name: "heria", day: "5", squad: "擬態学者", ending: "245", tp: "510" },
                 { name: "Rindo3373", day: "8", squad: "—", ending: "—", tp: "—" }
             ]
         }

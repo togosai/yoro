@@ -33,14 +33,14 @@ export const results = {
             name: "Ragequit team",
             totalTP: "690",
             players: [
-                { name: "WingsVN",          day: "4", squad: "—", ending: "—", tp: "—" },
+                { name: "WingsVN",          day: "4", squad: "突撃戦術", ending: "2★45★", tp: "890" },
                 { name: "Halca",            day: "2", squad: "擬態学者", ending: "245★", tp: "690" },
-                { name: "I Love Priestess", day: "11", squad: "—", ending: "—", tp: "—" }
+                { name: "I Love Priestess", day: "11", squad: "－", ending: "－", tp: "－" }
             ]
         },
         {
             id: "team3",
-            rank: 4,
+            rank: 5,
             name: "temp name",
             totalTP: "—",
             players: [
@@ -51,7 +51,7 @@ export const results = {
         },
         {
             id: "team4",
-            rank: 4,
+            rank: 5,
             name: "箱庭には0匹のコーラスがいます",
             totalTP: "—",
             players: [
@@ -62,7 +62,7 @@ export const results = {
         },
         {
             id: "team5",
-            rank: 4,
+            rank: 5,
             name: "team INTernational",
             totalTP: "—",
             players: [
@@ -73,7 +73,7 @@ export const results = {
         },
         {
             id: "team6",
-            rank: 4,
+            rank: 5,
             name: "sakichan sakichan sakichan",
             totalTP: "—",
             players: [
@@ -84,7 +84,7 @@ export const results = {
         },
         {
             id: "team7",
-            rank: 3,
+            rank: 4,
             name: "マジカルドスワンコ",
             totalTP: "150",
             players: [
@@ -106,11 +106,11 @@ export const results = {
         },
         {
             id: "team9",
-            rank: 4,
+            rank: 3,
             name: "天啓得たり得なかったり",
-            totalTP: "—",
+            totalTP: "630",
             players: [
-                { name: "花嶺かざり", day: "4", squad: "—", ending: "—", tp: "—" },
+                { name: "花嶺かざり", day: "4", squad: "援護戦術", ending: "245", tp: "630" },
                 { name: "heria", day: "5", squad: "—", ending: "—", tp: "—" },
                 { name: "Rindo3373", day: "8", squad: "—", ending: "—", tp: "—" }
             ]

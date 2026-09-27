@@ -18,12 +18,12 @@ export const results = {
     teams: [
         {
             id: "team1",
-            rank: 9,
+            rank: 5,
             name: "MMJ",
-            totalTP: "-40", // 例: 320 または "—"
+            totalTP: "190", // 例: 320 または "—"
             players: [
                 { name: "mindh4cker", day: "1", squad: "破棘成金", ending: "—", tp: "-40" },
-                { name: "Minku",      day: "6", squad: "—", ending: "—", tp: "—" },
+                { name: "Minku",      day: "6", squad: "擬態学者", ending: "2", tp: "230" },
                 { name: "JohnnyAK47", day: "8", squad: "—", ending: "—", tp: "—" }
             ]
         },
@@ -40,7 +40,7 @@ export const results = {
         },
         {
             id: "team3",
-            rank: 5,
+            rank: 7,
             name: "temp name",
             totalTP: "—",
             players: [
@@ -51,7 +51,7 @@ export const results = {
         },
         {
             id: "team4",
-            rank: 5,
+            rank: 7,
             name: "箱庭には0匹のコーラスがいます",
             totalTP: "—",
             players: [
@@ -62,18 +62,18 @@ export const results = {
         },
         {
             id: "team5",
-            rank: 5,
+            rank: 4,
             name: "team INTernational",
-            totalTP: "—",
+            totalTP: "300",
             players: [
-                { name: "Die Alive", day: "6", squad: "—", ending: "—", tp: "—" },
+                { name: "Die Alive", day: "6", squad: "位置測定", ending: "1★", tp: "300" },
                 { name: "CelerYi", day: "9", squad: "—", ending: "—", tp: "—" },
                 { name: "空気", day: "12", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
             id: "team6",
-            rank: 5,
+            rank: 7,
             name: "sakichan sakichan sakichan",
             totalTP: "—",
             players: [
@@ -84,7 +84,7 @@ export const results = {
         },
         {
             id: "team7",
-            rank: 4,
+            rank: 6,
             name: "マジカルドスワンコ",
             totalTP: "150",
             players: [

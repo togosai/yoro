@@ -31,7 +31,7 @@ export const results = {
             id: "team2",
             rank: 1,
             name: "Ragequit team",
-            totalTP: "690",
+            totalTP: "1580",
             players: [
                 { name: "WingsVN",          day: "4", squad: "突撃戦術", ending: "2★45★", tp: "890" },
                 { name: "Halca",            day: "2", squad: "擬態学者", ending: "245★", tp: "690" },

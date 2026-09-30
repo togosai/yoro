@@ -18,7 +18,7 @@ export const results = {
     teams: [
         {
             id: "team1",
-            rank: 4,
+            rank: 6,
             name: "MMJ",
             totalTP: "300", // 例: 320 または "—"
             players: [
@@ -40,7 +40,7 @@ export const results = {
         },
         {
             id: "team3",
-            rank: 8,
+            rank: 9,
             name: "temp name",
             totalTP: "—",
             players: [
@@ -53,27 +53,27 @@ export const results = {
             id: "team4",
             rank: 8,
             name: "箱庭には0匹のコーラスがいます",
-            totalTP: "—",
+            totalTP: "140",
             players: [
                 { name: "ゆゆれみ", day: "11", squad: "—", ending: "—", tp: "—" },
-                { name: "rate-dat", day: "10", squad: "—", ending: "—", tp: "—" },
+                { name: "rate-dat", day: "10", squad: "霊魂護送", ending: "2", tp: "140" },
                 { name: "チューバイのはや", day: "13", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
             id: "team5",
-            rank: 4,
+            rank: 5,
             name: "team INTernational",
-            totalTP: "300",
+            totalTP: "470",
             players: [
                 { name: "Die Alive", day: "6", squad: "位置測定", ending: "1★", tp: "300" },
-                { name: "CelerYi", day: "9", squad: "—", ending: "—", tp: "—" },
+                { name: "CelerYi", day: "9", squad: "霊魂護送", ending: "2", tp: "170" },
                 { name: "空気", day: "12", squad: "—", ending: "—", tp: "—" }
             ]
         },
         {
             id: "team6",
-            rank: 6,
+            rank: 7,
             name: "sakichan sakichan sakichan",
             totalTP: "190",
             players: [
@@ -84,13 +84,13 @@ export const results = {
         },
         {
             id: "team7",
-            rank: 7,
+            rank: 4,
             name: "マジカルドスワンコ",
-            totalTP: "150",
+            totalTP: "780",
             players: [
                 { name: "ナツホ", day: "3", squad: "位置測定", ending: "—", tp: "40" },
                 { name: "わっしょイ", day: "2", squad: "霊魂護送", ending: "2", tp: "110" },
-                { name: "しばケット", day: "9", squad: "—", ending: "—", tp: "—" }
+                { name: "しばケット", day: "9", squad: "破棘成金", ending: "245", tp: "630" }
             ]
         },
         {

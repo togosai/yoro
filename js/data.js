@@ -83,7 +83,7 @@ export const tournament = {
         { day: 11, title: "DAY 11", date: "2026.10.01", youtubeUrl: "https://www.youtube.com/live/sfGYA2dI_EQ?si=S66VK0ZJMN3VTwdD" },
         { day: 12, title: "DAY 12", date: "2026.10.02", youtubeUrl: "https://www.youtube.com/live/Vxoj1c7F4eU?si=n7alNsZdMBW23hq0" },
         { day: 13, title: "DAY 13", date: "2026.10.03", youtubeUrl: "https://youtube.com/live/zgLtWOv3W9k?feature=share" },
-        { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "https://youtube.com/live/Vxoj1c7F4eU" }
+        { day: 14, title: "DAY 14", date: "2026.10.04", youtubeUrl: "https://youtube.com/live/8SQevgQ8CNE" }
     ],
 
     assets: {

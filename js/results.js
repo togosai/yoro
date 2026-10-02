@@ -29,13 +29,13 @@ export const results = {
         },
         {
             id: "team2",
-            rank: 2,
+            rank: 1,
             name: "Ragequit team",
-            totalTP: "1580",
+            totalTP: "1980",
             players: [
                 { name: "WingsVN",          day: "4", squad: "突撃戦術", ending: "2★45★", tp: "890" },
                 { name: "Halca",            day: "2", squad: "擬態学者", ending: "245★", tp: "690" },
-                { name: "I Love Priestess", day: "11", squad: "－", ending: "－", tp: "－" }
+                { name: "I Love Priestess", day: "11", squad: "霊魂護送", ending: "245", tp: "400" }
             ]
         },
         {
@@ -53,9 +53,9 @@ export const results = {
             id: "team4",
             rank: 8,
             name: "箱庭には0匹のコーラスがいます",
-            totalTP: "140",
+            totalTP: "100",
             players: [
-                { name: "ゆゆれみ", day: "11", squad: "—", ending: "—", tp: "—" },
+                { name: "ゆゆれみ", day: "11", squad: "位置測定", ending: "—", tp: "-40" },
                 { name: "rate-dat", day: "10", squad: "霊魂護送", ending: "2", tp: "140" },
                 { name: "チューバイのはや", day: "13", squad: "—", ending: "—", tp: "—" }
             ]
@@ -106,7 +106,7 @@ export const results = {
         },
         {
             id: "team9",
-            rank: 1,
+            rank: 2,
             name: "天啓得たり得なかったり",
             totalTP: "1090",
             players: [

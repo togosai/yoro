@@ -62,7 +62,7 @@ export const results = {
         },
         {
             id: "team5",
-            rank: 5,
+            rank: 6,
             name: "team INTernational",
             totalTP: "650",
             players: [
@@ -73,7 +73,7 @@ export const results = {
         },
         {
             id: "team6",
-            rank: 7,
+            rank: 9,
             name: "sakichan sakichan sakichan",
             totalTP: "190",
             players: [
@@ -84,7 +84,7 @@ export const results = {
         },
         {
             id: "team7",
-            rank: 4,
+            rank: 5,
             name: "マジカルドスワンコ",
             totalTP: "780",
             players: [

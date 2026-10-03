@@ -18,7 +18,7 @@ export const results = {
     teams: [
         {
             id: "team1",
-            rank: 6,
+            rank: 7,
             name: "MMJ",
             totalTP: "300", // 例: 320 または "—"
             players: [
@@ -40,35 +40,35 @@ export const results = {
         },
         {
             id: "team3",
-            rank: 9,
+            rank: 4,
             name: "temp name",
-            totalTP: "—",
+            totalTP: "1190",
             players: [
                 { name: "Azen", day: "14", squad: "—", ending: "—", tp: "—" },
-                { name: "Larfa", day: "13", squad: "—", ending: "—", tp: "—" },
-                { name: "Kevthink", day: "12", squad: "—", ending: "—", tp: "—" }
+                { name: "Larfa", day: "13", squad: "位置測定", ending: "1★45★", tp: "1050" },
+                { name: "Kevthink", day: "12", squad: "博学多識", ending: "2", tp: "140" }
             ]
         },
         {
             id: "team4",
             rank: 8,
             name: "箱庭には0匹のコーラスがいます",
-            totalTP: "100",
+            totalTP: "160",
             players: [
                 { name: "ゆゆれみ", day: "11", squad: "位置測定", ending: "—", tp: "-40" },
                 { name: "rate-dat", day: "10", squad: "霊魂護送", ending: "2", tp: "140" },
-                { name: "チューバイのはや", day: "13", squad: "—", ending: "—", tp: "—" }
+                { name: "チューバイのはや", day: "13", squad: "破棘成金", ending: "2", tp: "60" }
             ]
         },
         {
             id: "team5",
             rank: 5,
             name: "team INTernational",
-            totalTP: "470",
+            totalTP: "650",
             players: [
                 { name: "Die Alive", day: "6", squad: "位置測定", ending: "1★", tp: "300" },
                 { name: "CelerYi", day: "9", squad: "霊魂護送", ending: "2", tp: "170" },
-                { name: "空気", day: "12", squad: "—", ending: "—", tp: "—" }
+                { name: "空気", day: "12", squad: "擬態学者", ending: "2", tp: "180" }
             ]
         },
         {
@@ -77,7 +77,7 @@ export const results = {
             name: "sakichan sakichan sakichan",
             totalTP: "190",
             players: [
-                { name: "Jarvis", day: "10", squad: "—", ending: "—", tp: "—" },
+                { name: "Jarvis", day: "10", squad: "—", ending: "破棘成金", tp: "-40" },
                 { name: "Grubbie", day: "14", squad: "—", ending: "—", tp: "—" },
                 { name: "d1sgraceee", day: "7", squad: "破壊戦術", ending: "2", tp: "190" }
             ]

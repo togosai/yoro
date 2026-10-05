@@ -18,7 +18,7 @@ export const results = {
     teams: [
         {
             id: "team1",
-            rank: 7,
+            rank: 8,
             name: "MMJ",
             totalTP: "300", // 例: 320 または "—"
             players: [
@@ -29,7 +29,7 @@ export const results = {
         },
         {
             id: "team2",
-            rank: 1,
+            rank: 2,
             name: "Ragequit team",
             totalTP: "1980",
             players: [
@@ -40,18 +40,18 @@ export const results = {
         },
         {
             id: "team3",
-            rank: 4,
+            rank: 1,
             name: "temp name",
-            totalTP: "1190",
+            totalTP: "2030",
             players: [
-                { name: "Azen", day: "14", squad: "—", ending: "—", tp: "—" },
+                { name: "Azen", day: "14", squad: "破棘成金", ending: "245★", tp: "840" },
                 { name: "Larfa", day: "13", squad: "位置測定", ending: "1★45★", tp: "1050" },
                 { name: "Kevthink", day: "12", squad: "博学多識", ending: "2", tp: "140" }
             ]
         },
         {
             id: "team4",
-            rank: 8,
+            rank: 9,
             name: "箱庭には0匹のコーラスがいます",
             totalTP: "160",
             players: [
@@ -73,12 +73,12 @@ export const results = {
         },
         {
             id: "team6",
-            rank: 9,
+            rank: 7,
             name: "sakichan sakichan sakichan",
-            totalTP: "190",
+            totalTP: "430",
             players: [
-                { name: "Jarvis", day: "10", squad: "—", ending: "破棘成金", tp: "-40" },
-                { name: "Grubbie", day: "14", squad: "—", ending: "—", tp: "—" },
+                { name: "Jarvis", day: "10", squad: "破棘成金", ending: "－", tp: "-40" },
+                { name: "Grubbie", day: "14", squad: "位置測定", ending: "－", tp: "280" },
                 { name: "d1sgraceee", day: "7", squad: "破壊戦術", ending: "2", tp: "190" }
             ]
         },
@@ -95,7 +95,7 @@ export const results = {
         },
         {
             id: "team8",
-            rank: 3,
+            rank: 4,
             name: "終結の肉体に救済を",
             totalTP: "1210",
             players: [
@@ -106,9 +106,9 @@ export const results = {
         },
         {
             id: "team9",
-            rank: 2,
+            rank: 3,
             name: "天啓得たり得なかったり",
-            totalTP: "1090",
+            totalTP: "1610",
             players: [
                 { name: "花嶺かざり", day: "4", squad: "援護戦術", ending: "145", tp: "580" },
                 { name: "heria", day: "5", squad: "擬態学者", ending: "245", tp: "510" },
